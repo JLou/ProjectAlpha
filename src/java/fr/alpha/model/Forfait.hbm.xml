@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 f?vr. 2015 15:14:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.alpha.model.Forfait" table="forfait" catalog="project_alpha" optimistic-lock="version">
+        <id name="idforfait" type="java.lang.Integer">
+            <column name="idforfait" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="categorie" class="fr.alpha.model.Categorie" fetch="select">
+            <column name="categorie_idcategorie" not-null="true" />
+        </many-to-one>
+        <property name="typePanne" type="string">
+            <column name="type_panne" length="45" not-null="true" />
+        </property>
+        <property name="coutPort" type="int">
+            <column name="cout_port" not-null="true" />
+        </property>
+        <property name="coutDevis" type="int">
+            <column name="cout_devis" not-null="true" />
+        </property>
+        <property name="coutReparation" type="int">
+            <column name="cout_reparation" not-null="true" />
+        </property>
+        <property name="idcategorie" type="int">
+            <column name="idcategorie" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

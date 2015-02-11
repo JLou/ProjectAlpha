@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 f?vr. 2015 15:14:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.alpha.model.Reparateur" table="reparateur" catalog="project_alpha" optimistic-lock="version">
+        <id name="idreparateur" type="java.lang.Integer">
+            <column name="idreparateur" />
+            <generator class="identity" />
+        </id>
+        <property name="zone" type="int">
+            <column name="zone" not-null="true" />
+        </property>
+        <property name="nom" type="string">
+            <column name="nom" length="45" not-null="true" />
+        </property>
+        <set name="marques" table="marque_has_reparateur" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="reparateur_idreparateur" not-null="true" />
+            </key>
+            <many-to-many entity-name="fr.alpha.model.Marque">
+                <column name="marque_idmarque" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

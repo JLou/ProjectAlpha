@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 f?vr. 2015 15:14:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.alpha.model.InfosReparation" table="infos_reparation" catalog="project_alpha" optimistic-lock="version">
+        <id name="idinfosReparation" type="java.lang.Integer">
+            <column name="idinfos_reparation" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="produit" class="fr.alpha.model.Produit" fetch="select">
+            <column name="produit_idproduit" not-null="true" />
+        </many-to-one>
+        <property name="adresse" type="string">
+            <column name="adresse" length="45" not-null="true" />
+        </property>
+        <property name="descritpion" type="string">
+            <column name="descritpion" length="45" not-null="true" />
+        </property>
+        <property name="idproduit" type="int">
+            <column name="idproduit" not-null="true" />
+        </property>
+        <property name="idutilisateur" type="int">
+            <column name="idutilisateur" not-null="true" />
+        </property>
+        <property name="etat" type="string">
+            <column name="etat" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

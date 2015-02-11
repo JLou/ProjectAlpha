@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="project_alpha"/>
+  <table-filter match-name="infos_reparation"/>
+  <table-filter match-name="utilisateur"/>
+  <table-filter match-name="marque"/>
+  <table-filter match-name="garantie_has_vendeur"/>
+  <table-filter match-name="utilisateur_has_garantie"/>
+  <table-filter match-name="reparateur"/>
+  <table-filter match-name="garantie"/>
+  <table-filter match-name="produit"/>
+  <table-filter match-name="forfait"/>
+  <table-filter match-name="modele"/>
+  <table-filter match-name="marque_has_reparateur"/>
+  <table-filter match-name="vendeur"/>
+  <table-filter match-name="categorie"/>
+</hibernate-reverse-engineering>

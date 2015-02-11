@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 f?vr. 2015 15:14:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.alpha.model.Utilisateur" table="utilisateur" catalog="project_alpha" optimistic-lock="version">
+        <id name="idutilisateur" type="java.lang.Integer">
+            <column name="idutilisateur" />
+            <generator class="identity" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="45" not-null="true" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="prenom" length="45" not-null="true" />
+        </property>
+        <property name="mail" type="string">
+            <column name="mail" length="45" not-null="true" />
+        </property>
+        <property name="adresse" type="int">
+            <column name="adresse" not-null="true" />
+        </property>
+        <set name="utilisateurHasGaranties" table="utilisateur_has_garantie" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="utilisateur_idutilisateur" not-null="true" />
+            </key>
+            <one-to-many class="fr.alpha.model.UtilisateurHasGarantie" />
+        </set>
+        <set name="produits" table="produit" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="utilisateur_idutilisateur" not-null="true" />
+            </key>
+            <one-to-many class="fr.alpha.model.Produit" />
+        </set>
+    </class>
+</hibernate-mapping>

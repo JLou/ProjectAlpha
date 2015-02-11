@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 f?vr. 2015 15:14:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.alpha.model.UtilisateurHasGarantie" table="utilisateur_has_garantie" catalog="project_alpha" optimistic-lock="version">
+        <composite-id name="id" class="fr.alpha.model.UtilisateurHasGarantieId">
+            <key-property name="utilisateurIdutilisateur" type="int">
+                <column name="utilisateur_idutilisateur" />
+            </key-property>
+            <key-property name="garantieIdgarantie" type="int">
+                <column name="garantie_idgarantie" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="garantie" class="fr.alpha.model.Garantie" update="false" insert="false" fetch="select">
+            <column name="garantie_idgarantie" not-null="true" />
+        </many-to-one>
+        <many-to-one name="utilisateur" class="fr.alpha.model.Utilisateur" update="false" insert="false" fetch="select">
+            <column name="utilisateur_idutilisateur" not-null="true" />
+        </many-to-one>
+        <property name="dateDebut" type="date">
+            <column name="date_debut" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

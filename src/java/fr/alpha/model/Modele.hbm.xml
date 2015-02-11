@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 f?vr. 2015 15:14:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.alpha.model.Modele" table="modele" catalog="project_alpha" optimistic-lock="version">
+        <id name="idmodele" type="java.lang.Integer">
+            <column name="idmodele" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="categorie" class="fr.alpha.model.Categorie" fetch="select">
+            <column name="categorie_idcategorie" not-null="true" />
+        </many-to-one>
+        <many-to-one name="marque" class="fr.alpha.model.Marque" fetch="select">
+            <column name="marque_idmarque" not-null="true" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="nom" length="45" not-null="true" />
+        </property>
+        <property name="idcategorie" type="int">
+            <column name="idcategorie" not-null="true" />
+        </property>
+        <property name="transportable" type="boolean">
+            <column name="transportable" not-null="true" />
+        </property>
+        <property name="idmarque" type="java.lang.Integer">
+            <column name="idmarque" />
+        </property>
+        <set name="produits" table="produit" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="modele_idmodele" not-null="true" />
+            </key>
+            <one-to-many class="fr.alpha.model.Produit" />
+        </set>
+    </class>
+</hibernate-mapping>

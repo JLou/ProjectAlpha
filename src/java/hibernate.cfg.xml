@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projet_alpha</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">thekillers</property>
-    
-        <!-- Enable Hibernate's automatic session context management -->
-        <property name="current_session_context_class">thread</property>
- 
-        <property name="cache.provider_class">
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/project_alpha</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">INTIJEE</property>
+    <!-- Enable Hibernate's automatic session context management -->
+    <property name="current_session_context_class">thread</property>
+    <property name="cache.provider_class">
             org.hibernate.cache.NoCacheProvider
         </property>
- 
-        <!-- Display all generated SQL to stdout -->
-        <property name="show_sql">true</property>
- 
-        <property name="hbm2ddl.auto">update</property>
-    </session-factory>
+    <!-- Display all generated SQL to stdout -->
+    <property name="show_sql">true</property>
+    <property name="hbm2ddl.auto">update</property>
+    <mapping resource="fr/alpha/model/InfosReparation.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Categorie.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Modele.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Produit.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Marque.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Forfait.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Reparateur.hbm.xml"/>
+    <mapping resource="fr/alpha/model/UtilisateurHasGarantie.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Utilisateur.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Garantie.hbm.xml"/>
+    <mapping resource="fr/alpha/model/Vendeur.hbm.xml"/>
+  </session-factory>
 </hibernate-configuration>

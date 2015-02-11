@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 f?vr. 2015 15:14:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.alpha.model.Garantie" table="garantie" catalog="project_alpha" optimistic-lock="version">
+        <id name="idgarantie" type="java.lang.Integer">
+            <column name="idgarantie" />
+            <generator class="identity" />
+        </id>
+        <property name="idmodele" type="int">
+            <column name="idmodele" not-null="true" />
+        </property>
+        <property name="prix" type="float">
+            <column name="prix" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="duree" type="int">
+            <column name="duree" not-null="true" />
+        </property>
+        <set name="vendeurs" table="garantie_has_vendeur" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="garantie_idgarantie" not-null="true" />
+            </key>
+            <many-to-many entity-name="fr.alpha.model.Vendeur">
+                <column name="vendeur_idvendeur" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="utilisateurHasGaranties" table="utilisateur_has_garantie" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="garantie_idgarantie" not-null="true" />
+            </key>
+            <one-to-many class="fr.alpha.model.UtilisateurHasGarantie" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 f?vr. 2015 15:14:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.alpha.model.Produit" table="produit" catalog="project_alpha" optimistic-lock="version">
+        <id name="idproduit" type="java.lang.Integer">
+            <column name="idproduit" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="modele" class="fr.alpha.model.Modele" fetch="select">
+            <column name="modele_idmodele" not-null="true" />
+        </many-to-one>
+        <many-to-one name="utilisateur" class="fr.alpha.model.Utilisateur" fetch="select">
+            <column name="utilisateur_idutilisateur" not-null="true" />
+        </many-to-one>
+        <property name="idUtilisateur" type="int">
+            <column name="id_utilisateur" not-null="true" />
+        </property>
+        <property name="idModele" type="int">
+            <column name="id_modele" not-null="true" />
+        </property>
+        <set name="infosReparations" table="infos_reparation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="produit_idproduit" not-null="true" />
+            </key>
+            <one-to-many class="fr.alpha.model.InfosReparation" />
+        </set>
+    </class>
+</hibernate-mapping>
