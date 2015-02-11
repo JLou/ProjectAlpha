@@ -38,7 +38,7 @@ public class ProduitsAction extends ActionSupport {
         session.beginTransaction();
         List<ProduitsAction> items = null;
         try {
-            items = (List<ProduitsAction>) session.createQuery("from Produits").list();
+            items = (List<ProduitsAction>) session.createQuery("from Produit").list();
 
         } catch (HibernateException e) {
             e.printStackTrace();
