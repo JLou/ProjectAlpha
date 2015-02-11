@@ -20,7 +20,9 @@
           
         </s:form>
         
-        
+        <s:form action="/nouvelUtil.jsp" >        
+          <s:submit value="nouvel utilisateur" />          
+        </s:form>
 
         <h2>Items in Master</h2>
         <table border="1">
