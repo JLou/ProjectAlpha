@@ -7,16 +7,27 @@ package fr.alpha.actions;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import fr.alpha.bo.Utilisateur;
+import fr.alpha.model.Utilisateur;
 import fr.alpha.bdd.UtilisateurGestion;
+import fr.alpha.dao.UtilisateurDAO;
+import fr.alpha.util.HibernateUtil;
+import java.util.List;
 import java.util.Map;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 public class UtilisateurAction extends ActionSupport {
 
     private Utilisateur utilisateur;
+    private UtilisateurDAO userDAO;
     private boolean valid;
     private String message = "";
 
+    public UtilisateurAction() {
+        this.userDAO = new UtilisateurDAO();
+    }
+
+    
     public String getMessage() {
         return message;
     }
@@ -27,14 +38,21 @@ public class UtilisateurAction extends ActionSupport {
     }
     
     public String isValidUser() {
+        
+        SessionFactory factory = HibernateUtil.createSessionFactory();
+        userDAO.setSessionFactory(factory);
+        Transaction tx = factory.getCurrentSession().beginTransaction();
+        //models = modelDAO.findByCategory(yourCategory);
+        Utilisateur utilisateurBase = userDAO.findByEmail(utilisateur.getMail());
+        
+        
+        if (utilisateurBase != null) {
 
-        if (utilisateur != null) {
-
-            if (!utilisateur.getIdentifiant().equals("") && !utilisateur.getMdp().equals("")) {
-                if (new UtilisateurGestion().isValid(utilisateur.getIdentifiant(), utilisateur.getMdp())) {
+            if (!utilisateur.getMail().equals("") && !utilisateur.getMdp().equals("")) {
+                if (utilisateurBase.getMdp().equals(utilisateur.getMdp())) {
                  
                     Map sessionMap = ActionContext.getContext().getSession();
-                    sessionMap.put("user_login", utilisateur.getIdentifiant());
+                    sessionMap.put("user_login", utilisateur.getMail());
                     sessionMap.put("user_mdp", utilisateur.getMdp());
                     sessionMap.put("isLogged", "true");
                     
@@ -73,5 +91,5 @@ public class UtilisateurAction extends ActionSupport {
     public void setValid(boolean valid) {
         this.valid = valid;
     }
-
+    
 }

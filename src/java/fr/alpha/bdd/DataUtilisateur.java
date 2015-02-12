@@ -11,9 +11,7 @@ import java.util.ArrayList;
 public class DataUtilisateur extends ArrayList<Utilisateur>{
 
     public DataUtilisateur() {
-        add(new Utilisateur("azerty", "789"));
-        add(new Utilisateur("qsdfgh", "123"));
-        add(new Utilisateur("wxcvbn", "456"));
+        
     }
     
 }

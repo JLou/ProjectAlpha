@@ -17,6 +17,9 @@
         <property name="mail" type="string">
             <column name="mail" length="45" not-null="true" />
         </property>
+        <property name="Mdp" type="string">
+            <column name="Mdp" length="45" not-null="true" />
+        </property>
         <property name="adresse" type="int">
             <column name="adresse" not-null="true" />
         </property>

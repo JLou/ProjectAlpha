@@ -1,5 +1,5 @@
 package fr.alpha.model;
-// Generated 11 févr. 2015 15:14:00 by Hibernate Tools 4.3.1
+// Generated 11 fï¿½vr. 2015 15:14:00 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,7 +19,6 @@ public class Categorie  implements java.io.Serializable {
     public Categorie() {
     }
 
-	
     public Categorie(String nom) {
         this.nom = nom;
     }
@@ -36,6 +35,7 @@ public class Categorie  implements java.io.Serializable {
     public void setIdcategorie(Integer idcategorie) {
         this.idcategorie = idcategorie;
     }
+    
     public String getNom() {
         return this.nom;
     }

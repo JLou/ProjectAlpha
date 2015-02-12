@@ -12,6 +12,7 @@
 <%@attribute name = "sideBar" fragment="true" %>
 <%@attribute name = "bodyContent" fragment="true" %>
 <%@attribute name = "titleContent" fragment="true" %>
+<%@taglib prefix="s" uri="/struts-tags"%>
 
 <html>
     <head>
@@ -68,7 +69,7 @@
                     <form method="post" action="ValidateUser" class="navbar-form pull-right">
                                        
                         <span class="alert-block" value="message" >${message}</span>
-                        <input placeholder="Identifiant" type="text" name="utilisateur.identifiant" value="" />
+                        <input placeholder="Identifiant" type="text" name="utilisateur.mail" value="" />
                         <input placeholder="Mot de Passe" type="password" name="utilisateur.mdp" value=""  />
                         <input type="submit" class="btn" value="connection" /> 
           

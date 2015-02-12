@@ -5,16 +5,27 @@
  */
 package fr.alpha.dao;
 
+import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
-import fr.alpha.bo.Utilisateur;
+import com.googlecode.genericdao.search.Filter;
+import com.googlecode.genericdao.search.Search;
+import fr.alpha.model.Utilisateur;
+import fr.alpha.model.Modele;
 import fr.alpha.util.HibernateUtil;
+import java.util.List;
 import org.hibernate.Session;
 
 /**
  *
  * @author INTI
  */
-public class UtilisateurDAO extends GeneralDAOImpl{
+public class UtilisateurDAO extends GenericDAOImpl<Utilisateur, Long>{
+
+    public Utilisateur findByEmail(String mail) {
+        Search s = new Search(Utilisateur.class);
+        s.addFilterEqual("mail", mail);
+        return searchUnique(s);
+    }
 
     
 }
