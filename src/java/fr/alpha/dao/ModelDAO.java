@@ -18,6 +18,13 @@ import java.util.List;
  */
 public class ModelDAO extends GenericDAOImpl<Modele, Long>{
     
+    public List<Modele> findByCategory(int categoryId) {
+        
+        Search s = new Search(Modele.class);
+        s.addFilterSome("categorie", Filter.equal("idcategorie", categoryId));
+        return search(s);
+    }
+    
     public List<Modele> findByCategory(Categorie c) {
         
         Search s = new Search(Modele.class);

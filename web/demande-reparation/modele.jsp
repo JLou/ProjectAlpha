@@ -16,6 +16,13 @@
     <body>
         <h1>Hello World!</h1>
         
-        
+        <s:form action="demandeRep2" method="post">
+            <s:select label="Chose a category" 
+		headerKey="-1" headerValue="--- Select ---"
+                list="models"
+                listValue="nom" listKey="idmodele"
+                name="yourModel"/>      
+            <s:submit value="Valider" align="center"/>
+        </s:form>
     </body>
 </html>

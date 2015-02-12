@@ -25,8 +25,8 @@ public class DemandeReparationAction extends ActionSupport {
     List<Categorie> categories;
     private List<Modele> models;
     
-    Categorie yourCategory;
-    private Modele yourModel;
+    private int yourCategory;
+    private int yourModel;
     
     private CategorieDAO categorieDAO;
     private ModelDAO modelDAO;
@@ -39,11 +39,11 @@ public class DemandeReparationAction extends ActionSupport {
         this.categories = categories;
     }
 
-    public Categorie getYourCategory() {
+    public int getYourCategory() {
         return yourCategory;
     }
 
-    public void setYourCategory(Categorie yourCategory) {
+    public void setYourCategory(int yourCategory) {
         this.yourCategory = yourCategory;
     }
     
@@ -67,13 +67,8 @@ public class DemandeReparationAction extends ActionSupport {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         modelDAO.setSessionFactory(factory);
         Transaction tx = factory.getCurrentSession().beginTransaction();
-        //models = modelDAO.findByCategory(yourCategory);
-        models = modelDAO.findAll();
-        //tx.commit();
-        System.out.println("TOTOTOOTOTOTTOTOTOOTOTO");
-        for (Modele model : models) {
-            System.out.println(model.getNom());
-        }
+        models = modelDAO.findByCategory(yourCategory);
+        tx.commit();
        
         return INPUT;
     }
@@ -86,11 +81,11 @@ public class DemandeReparationAction extends ActionSupport {
         this.models = models;
     }
 
-    public Modele getYourModel() {
+    public int getYourModel() {
         return yourModel;
     }
 
-    public void setYourModel(Modele yourModel) {
+    public void setYourModel(int yourModel) {
         this.yourModel = yourModel;
     }
 

@@ -20,7 +20,7 @@
             <s:select label="Chose a category" 
 		headerKey="-1" headerValue="--- Select ---"
                 list="categories"
-                listValue="nom"
+                listValue="nom" listKey="idcategorie"
                 name="yourCategory"/>      
             <s:submit value="Valider" align="center"/>
         </s:form>
