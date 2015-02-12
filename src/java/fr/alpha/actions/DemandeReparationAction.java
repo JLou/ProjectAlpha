@@ -75,6 +75,7 @@ public class DemandeReparationAction extends ActionSupport {
 
     public List<Modele> getModels() {
         return models;
+        
     }
 
     public void setModels(List<Modele> models) {
