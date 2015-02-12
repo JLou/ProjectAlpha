@@ -5,15 +5,13 @@
  */
 package fr.alpha.dao;
 
-import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
+import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
+import fr.alpha.model.Categorie;
 
 /**
  *
  * @author INTI
  */
-public class CategorieDAO extends GeneralDAOImpl{
+public class CategorieDAO extends GenericDAOImpl<Categorie, Long>{
 
-    public CategorieDAO() {
-    }
-    
 }

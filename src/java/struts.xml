@@ -19,5 +19,18 @@
             <result name="success">index.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+        
+        <action name="demandeRep" class="fr.alpha.actions.DemandeReparationAction"
+                method="listCategories">
+            <result name="input">demande-reparation/categorie.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="demandeRep2" class="fr.alpha.actions.DemandeReparationAction"
+                method="listModels">
+            <result name="input">demande-reparation/modele.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        
     </package>
 </struts>
