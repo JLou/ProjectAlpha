@@ -21,10 +21,11 @@ public class UtilisateurAction extends ActionSupport {
         return message;
     }
 
+    
     public void setMessage(String message) {
         this.message = message;
     }
-
+    
     public String isValidUser() {
 
         if (utilisateur != null) {

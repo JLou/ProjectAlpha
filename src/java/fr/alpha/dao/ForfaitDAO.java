@@ -5,10 +5,16 @@
  */
 package fr.alpha.dao;
 
+import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
+
 /**
  *
  * @author INTI
  */
-public class ForfaitDAO {
+public class ForfaitDAO extends GeneralDAOImpl{
+
+    public ForfaitDAO() {
+    }
+    
     
 }

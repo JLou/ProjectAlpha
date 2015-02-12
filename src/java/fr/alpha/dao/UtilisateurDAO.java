@@ -5,6 +5,7 @@
  */
 package fr.alpha.dao;
 
+import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
 import fr.alpha.bo.Utilisateur;
 import fr.alpha.util.HibernateUtil;
 import org.hibernate.Session;
@@ -13,9 +14,7 @@ import org.hibernate.Session;
  *
  * @author INTI
  */
-public class UtilisateurDAO extends HibernateUtil {
+public class UtilisateurDAO extends GeneralDAOImpl{
 
-    
-    
     
 }

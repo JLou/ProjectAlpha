@@ -5,10 +5,15 @@
  */
 package fr.alpha.dao;
 
+import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
+
 /**
  *
  * @author INTI
  */
-public class GarantieDAO {
+public class GarantieDAO extends GeneralDAOImpl{
+
+    public GarantieDAO() {
+    }
     
 }

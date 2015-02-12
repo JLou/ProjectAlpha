@@ -5,10 +5,12 @@
  */
 package fr.alpha.dao;
 
+import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
+
 /**
  *
  * @author INTI
  */
-public class ModelDAO {
+public class ModelDAO extends GeneralDAOImpl{
     
 }

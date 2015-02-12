@@ -5,10 +5,15 @@
  */
 package fr.alpha.dao;
 
+import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
+
 /**
  *
  * @author INTI
  */
-public class InfosReparationDAO {
+public class InfosReparationDAO extends GeneralDAOImpl{
+
+    public InfosReparationDAO() {
+    }
     
 }
