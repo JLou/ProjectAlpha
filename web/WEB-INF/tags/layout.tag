@@ -64,59 +64,62 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="brand" href="/ProjectAlpha/index.jsp">@lpha</a>
-                    <a class="brand" href="/ProjectAlpha/nouvelUtil.jsp">Nouvel Utilisateur</a>
-
-                    <form method="post" action="ValidateUser" class="navbar-form pull-right">
-                                       
-                        <span class="alert-block" value="message" >${message}</span>
-                        <input placeholder="Identifiant" type="text" name="utilisateur.mail" value="" />
-                        <input placeholder="Mot de Passe" type="password" name="utilisateur.mdp" value=""  />
-                        <input type="submit" class="btn" value="connection" /> 
-          
-                    </form>
+                   
+                    <s:url action="add" var="addURL" />
+                    <s:a href="%{addURL}" cssClass="brand">Nouvel Utilisateur</s:a>
 
 
-                    <div class="nav-collapse collapse">
+                        <form method="post" action="ValidateUser" class="navbar-form pull-right">
+
+                            <span class="alert-block" value="message" >${message}</span>
+                            <input placeholder="Identifiant" type="text" name="utilisateur.mail" value="" />
+                            <input placeholder="Mot de Passe" type="password" name="utilisateur.mdp" value=""  />
+                            <input type="submit" class="btn" value="connection" /> 
+
+                        </form>
 
 
-                        <ul class="nav">
+                        <div class="nav-collapse collapse">
 
-                            <li><a href="index.jsp">Accueil</a></li>
 
-                            <li><a href="nouvelUtil.jsp">Nouvel Utilisateur</a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
+                            <ul class="nav">
 
+                                <li><a href="index.jsp">Accueil</a></li>
+
+                                <li><a href="nouvelUtil.jsp">Nouvel Utilisateur</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span3" style="position:fixed ; right: 5px "/>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span3" style="position:fixed ; right: 5px "/>
 
-                <div class="well sidebar-nav">
-                    <ul class="nav nav-list" >
-                        <jsp:invoke fragment="sideBar"/>
-                    </ul>
-                </div><!--/.well -->
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list" >
+                            <jsp:invoke fragment="sideBar"/>
+                        </ul>
+                    </div><!--/.well -->
 
-            </div><!--/span-->
+                </div><!--/span-->
 
-            <jsp:doBody/>
-
+                <jsp:doBody/>
 
 
 
-            <hr>
 
-            <footer>
-                <p>&copy; @lpha 2015</p>
-            </footer>
+                <hr>
 
-        </div>
+                <footer>
+                    <p>&copy; @lpha 2015</p>
+                </footer>
 
-    </body>
-</html>
+            </div>
+
+        </body>
+    </html>
 
 

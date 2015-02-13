@@ -10,11 +10,11 @@
 <!DOCTYPE html>
 <z:layout pageTitle="Nouvel Utilisateur">
     <s:form action="add" method="post">
-        <s:textfield name="nom" label="Nom"/>
-        <s:textfield name="prenom" label="Prenom"/>
-        <s:textfield name="mail" label="Mail"/>
-        <s:textfield name="adresse" label="Adresse"/>
-
+    <s:textfield  label="Nom" name="user.nom"/>
+        <s:textfield  label="Prenom" name="user.prenom"/>
+        <s:textfield label="Mail" name="user.mail"/>
+        <s:select list="towns" listKey="key" listValue="value"  label="Adresse" name="user.adresse"/>
+        <s:textfield  label="Mot de passe" name="user.mdp"/>
         <s:submit value="Ajouter" align="center"/>
     </s:form>
     </z:layout>

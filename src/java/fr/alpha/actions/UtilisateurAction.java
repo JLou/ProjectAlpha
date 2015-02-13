@@ -11,6 +11,8 @@ import fr.alpha.model.Utilisateur;
 import fr.alpha.bdd.UtilisateurGestion;
 import fr.alpha.dao.UtilisateurDAO;
 import fr.alpha.util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.hibernate.SessionFactory;
@@ -23,47 +25,60 @@ public class UtilisateurAction extends ActionSupport {
     private boolean valid;
     private String message = "";
 
-    public UtilisateurAction() {
-        this.userDAO = new UtilisateurDAO();
+    private Map<Integer, String> towns;
+    private List<String> towns2;
+
+    public List<String> getTowns2() {
+        return towns2;
     }
 
-    
+    public void setTowns2(List<String> towns2) {
+        this.towns2 = towns2;
+    }
+
+    public UtilisateurAction() {
+        this.userDAO = new UtilisateurDAO();
+        towns = new HashMap<>();
+
+        towns.put(1, "Paris");
+        towns.put(2, "LENSOIS");
+        towns.put(3, "Caen");
+
+    }
+
     public String getMessage() {
         return message;
     }
 
-    
     public void setMessage(String message) {
         this.message = message;
     }
-    
+
     public String isValidUser() {
-        
+
         SessionFactory factory = HibernateUtil.createSessionFactory();
         userDAO.setSessionFactory(factory);
         Transaction tx = factory.getCurrentSession().beginTransaction();
         //models = modelDAO.findByCategory(yourCategory);
         Utilisateur utilisateurBase = userDAO.findByEmail(utilisateur.getMail());
-        
-        
+
         if (utilisateurBase != null) {
 
             if (!utilisateur.getMail().equals("") && !utilisateur.getMdp().equals("")) {
                 if (utilisateurBase.getMdp().equals(utilisateur.getMdp())) {
-                 
+
                     Map sessionMap = ActionContext.getContext().getSession();
                     sessionMap.put("user_login", utilisateur.getMail());
                     sessionMap.put("user_mdp", utilisateur.getMdp());
                     sessionMap.put("isLogged", "true");
-                    
+
                     return SUCCESS;
-                    
-                }else{
+
+                } else {
                     setMessage("champs invalides");
                     return ERROR;
                 }
-                
-                
+
             } else {
                 setMessage("champs vides");
                 return INPUT;
@@ -71,9 +86,17 @@ public class UtilisateurAction extends ActionSupport {
             }
 
         }
-        
+        setMessage("email incorrect");
         return ERROR;
 
+    }
+
+    public Map<Integer, String> getTowns() {
+        return towns;
+    }
+
+    public void setTowns(Map<Integer, String> towns) {
+        this.towns = towns;
     }
 
     public Utilisateur getUtilisateur() {
@@ -91,5 +114,49 @@ public class UtilisateurAction extends ActionSupport {
     public void setValid(boolean valid) {
         this.valid = valid;
     }
-    
+
+    Utilisateur user;
+    UtilisateurDAO uDao = new UtilisateurDAO();
+
+    public String enregistrerEnBase() {
+       
+        if (user != null && !user.getNom().equals("")) {
+            SessionFactory factory = HibernateUtil.createSessionFactory();
+            uDao.setSessionFactory(factory);
+            Transaction tx = factory.getCurrentSession().beginTransaction();
+            
+            
+
+            uDao.save(user);
+            tx.commit();
+            return SUCCESS;
+        }
+        return INPUT;
+
+    }
+
+    public UtilisateurDAO getUserDAO() {
+        return userDAO;
+    }
+
+    public void setUserDAO(UtilisateurDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
+    public UtilisateurDAO getuDao() {
+        return uDao;
+    }
+
+    public void setuDao(UtilisateurDAO uDao) {
+        this.uDao = uDao;
+    }
+
+    public Utilisateur getUser() {
+        return user;
+    }
+
+    public void setUser(Utilisateur user) {
+        this.user = user;
+    }
+
 }

@@ -25,6 +25,12 @@
             <result name="input">demande-reparation/categorie.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+        <action name="add" class="fr.alpha.actions.UtilisateurAction"
+                method="enregistrerEnBase">
+            <result name="input">nouvelUtil.jsp</result>
+            <result name="success">indexlog.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
         
         <action name="demandeRep2" class="fr.alpha.actions.DemandeReparationAction"
                 method="listModels">
