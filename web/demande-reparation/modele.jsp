@@ -6,23 +6,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
-
+<%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
+<z:layout pageTitle="Choix de la catégorie">
         
         <s:form action="demandeRep2" method="post">
-            <s:select label="Chose a category" 
+            <s:select label="Chose a Model"
 		headerKey="-1" headerValue="--- Select ---"
                 list="models"
                 listValue="nom" listKey="idmodele"
                 name="yourModel"/>      
             <s:submit value="Valider" align="center"/>
         </s:form>
-    </body>
-</html>
+</z:layout>

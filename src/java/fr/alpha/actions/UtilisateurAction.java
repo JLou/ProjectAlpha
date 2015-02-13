@@ -43,7 +43,7 @@ public class UtilisateurAction extends ActionSupport {
         towns = new HashMap<>();
 
         towns.put(1, "Paris");
-        towns.put(2, "LENSOIS");
+        towns.put(2, "Lens");
         towns.put(3, "Caen");
 
     }

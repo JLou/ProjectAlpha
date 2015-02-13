@@ -68,16 +68,18 @@
                     <s:url action="add" var="addURL" />
                     <s:a href="%{addURL}" cssClass="brand">Nouvel Utilisateur</s:a>
 
-
+                    <s:if test="%{!#session.isLogged}">
                         <form method="post" action="ValidateUser" class="navbar-form pull-right">
-
                             <span class="alert-block" value="message" >${message}</span>
                             <input placeholder="Identifiant" type="text" name="utilisateur.mail" value="" />
                             <input placeholder="Mot de Passe" type="password" name="utilisateur.mdp" value=""  />
                             <input type="submit" class="btn" value="connection" /> 
-
                         </form>
-
+                    </s:if>
+                    <s:else >
+                        Bienvenue <s:text name="%{#session.user_login}"/>
+                        
+                    </s:else>
 
                         <div class="nav-collapse collapse">
 
