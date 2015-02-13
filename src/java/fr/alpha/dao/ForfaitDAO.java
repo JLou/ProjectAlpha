@@ -5,16 +5,24 @@
  */
 package fr.alpha.dao;
 
-import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
+import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
+import com.googlecode.genericdao.search.Filter;
+import com.googlecode.genericdao.search.Search;
+import fr.alpha.model.Categorie;
+import fr.alpha.model.Forfait;
+import java.util.List;
 
 /**
  *
  * @author INTI
  */
-public class ForfaitDAO extends GeneralDAOImpl{
+public class ForfaitDAO extends GenericDAOImpl<Forfait, Long>{
 
-    public ForfaitDAO() {
+    public List<Forfait> findByCategory(int categoryId) {
+        
+        Search s = new Search(Forfait.class);
+        s.addFilterSome("categorie", Filter.equal("idcategorie", categoryId));
+        return search(s);
     }
-    
     
 }

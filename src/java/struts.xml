@@ -38,5 +38,11 @@
             <result name="error">error.jsp</result>
         </action>
         
+        <action name="TypePanne" class="fr.alpha.actions.DemandeReparationAction"
+                method="listForfaits">
+            <result name="input">demande-reparation/forfaitPanne.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        
     </package>
 </struts>

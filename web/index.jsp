@@ -8,7 +8,7 @@
 
 
 
-  
+
 
     <h2>Items in Master</h2>
     <table border="1">
@@ -21,6 +21,12 @@
                 <td><s:property value="idproduit"/></td>
 
             </s:iterator>
+
         </tr>
-    </z:layout>
+        <tr>
+        <s:if test="%{#session.isLogged}">
+            <a href="demandeRep">DEMANDE REPARATION</a>
+        </s:if>
+    </tr>
+</z:layout>
 

@@ -8,14 +8,15 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
-<z:layout pageTitle="Choix de la catégorie">
+<z:layout pageTitle="Choix du modèle">
         
-        <s:form action="demandeRep2" method="post">
+        <s:form action="TypePanne" method="post">
             <s:select label="Chose a Model"
 		headerKey="-1" headerValue="--- Select ---"
                 list="models"
                 listValue="nom" listKey="idmodele"
                 name="yourModel"/>      
+            <s:hidden value="%{yourCategory}" name="yourCategory"/>
             <s:submit value="Valider" align="center"/>
         </s:form>
 </z:layout>

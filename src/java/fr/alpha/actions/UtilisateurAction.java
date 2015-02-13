@@ -68,8 +68,7 @@ public class UtilisateurAction extends ActionSupport {
                 if (utilisateurBase.getMdp().equals(utilisateur.getMdp())) {
 
                     Map sessionMap = ActionContext.getContext().getSession();
-                    sessionMap.put("user_login", utilisateur.getMail());
-                    sessionMap.put("user_mdp", utilisateur.getMdp());
+                    sessionMap.put("USER", utilisateurBase);
                     sessionMap.put("isLogged", "true");
 
                     return SUCCESS;
