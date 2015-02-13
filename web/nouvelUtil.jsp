@@ -8,7 +8,7 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
-<z:layout pageTitle="Nouvel Utilisateur">
+<z:layout pageTitle="Nouvel Utilisateur" message="${message}">
     <s:form action="add" method="post">
     <s:textfield  label="Nom" name="user.nom"/>
         <s:textfield  label="Prenom" name="user.prenom"/>
