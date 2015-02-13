@@ -7,7 +7,6 @@
 <z:layout pageTitle="IndexJsp" message="${message}">
 
 
-^
 
   
 

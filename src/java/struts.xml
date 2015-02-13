@@ -9,7 +9,7 @@
                 class="fr.alpha.actions.UtilisateurAction"
                 method="isValidUser">
         
-            <result name="success" >home.jsp</result>
+            <result name="success" type="redirectAction">demandeRep</result>
             <result name="error" >index.jsp</result>
             <result name="input">index.jsp</result>
         </action>

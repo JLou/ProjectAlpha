@@ -41,7 +41,7 @@ public class UtilisateurAction extends ActionSupport {
         towns = new HashMap<>();
 
         towns.put(1, "Paris");
-        towns.put(2, "LENSOIS");
+        towns.put(2, "Lens");
         towns.put(3, "Caen");
 
     }
@@ -119,13 +119,11 @@ public class UtilisateurAction extends ActionSupport {
     UtilisateurDAO uDao = new UtilisateurDAO();
 
     public String enregistrerEnBase() {
-       
+
         if (user != null && !user.getNom().equals("")) {
             SessionFactory factory = HibernateUtil.createSessionFactory();
             uDao.setSessionFactory(factory);
             Transaction tx = factory.getCurrentSession().beginTransaction();
-            
-            
 
             uDao.save(user);
             tx.commit();
