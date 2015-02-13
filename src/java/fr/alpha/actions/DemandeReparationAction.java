@@ -11,7 +11,6 @@ import fr.alpha.dao.ModelDAO;
 import fr.alpha.model.Categorie;
 import fr.alpha.model.Modele;
 import fr.alpha.util.HibernateUtil;
-import java.util.LinkedList;
 import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

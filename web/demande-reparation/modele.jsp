@@ -11,7 +11,7 @@
 <z:layout pageTitle="Choix de la catégorie">
         
         <s:form action="demandeRep2" method="post">
-            <s:select label="Chose a Model" 
+            <s:select label="Chose a Model"
 		headerKey="-1" headerValue="--- Select ---"
                 list="models"
                 listValue="nom" listKey="idmodele"

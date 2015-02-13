@@ -15,7 +15,7 @@
 		headerKey="-1" headerValue="--- Select ---"
                 list="categories"
                 listValue="nom" listKey="idcategorie"
-                name="yourCategory"/>      
+                name="yourCategory"/>
             <s:submit value="Valider" align="center"/>
         </s:form>
 </z:layout>
