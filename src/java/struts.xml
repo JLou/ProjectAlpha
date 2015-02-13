@@ -5,9 +5,9 @@
 <struts>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
-         <action name="ValidateUser"
-                class="fr.alpha.actions.UtilisateurAction"
-                method="isValidUser">
+        <action name="ValidateUser"
+                 class="fr.alpha.actions.UtilisateurAction"
+                 method="isValidUser">
         
             <result name="success" type="redirectAction">demandeRep</result>
             <result name="error" >index.jsp</result>
@@ -27,6 +27,11 @@
             <result name="error">error.jsp</result>
         </action>
         
+            <action name="sendMail" class="fr.alpha.mails.MailActions">
+                <result name="success">confirmation.jsp</result>
+                <result name="input">index.jsp</result>
+            </action>
+        
 
         
     </package>
@@ -34,7 +39,8 @@
     <package name="user" namespace="/" extends="struts-default">
         <interceptors>
             <interceptor name="authentication"
-                class="fr.alpha.interceptors.AuthenticationInterceptor"></interceptor>
+                         class="fr.alpha.interceptors.AuthenticationInterceptor">
+            </interceptor>
             <interceptor-stack name="authStack">
                 <interceptor-ref name="authentication"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
@@ -60,8 +66,8 @@
             <result name="input">login.jsp</result>
         </action>
  
-         <action name="demandeRep2" class="fr.alpha.actions.DemandeReparationAction"
-                method="listModels">
+        <action name="demandeRep2" class="fr.alpha.actions.DemandeReparationAction"
+                 method="listModels">
             <result name="input">demande-reparation/modele.jsp</result>
             <result name="error">error.jsp</result>
         </action>
@@ -83,4 +89,6 @@
             <result name="error">error.jsp</result>
         </action>
     </package>
+    
+    
 </struts>

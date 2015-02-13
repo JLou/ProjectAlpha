@@ -8,7 +8,7 @@ package fr.alpha.actions;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import fr.alpha.model.Utilisateur;
-import fr.alpha.bdd.UtilisateurGestion;
+
 import fr.alpha.dao.UtilisateurDAO;
 import fr.alpha.util.HibernateUtil;
 import fr.alpha.util.Locations;

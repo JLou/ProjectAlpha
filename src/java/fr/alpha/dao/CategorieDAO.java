@@ -5,6 +5,7 @@
  */
 package fr.alpha.dao;
 
+
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import fr.alpha.model.Categorie;
 
