@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
@@ -119,7 +121,8 @@ public class UtilisateurAction extends ActionSupport {
 
     public String enregistrerEnBase() {
 
-        if (user != null && !user.getNom().equals("")) {
+        if (user != null && !user.getNom().equals("")
+                && !user.getMail().equals("") && !user.getPrenom().equals("") && !user.getMdp().equals("")) {
             SessionFactory factory = HibernateUtil.createSessionFactory();
             uDao.setSessionFactory(factory);
             Transaction tx = factory.getCurrentSession().beginTransaction();
@@ -130,6 +133,41 @@ public class UtilisateurAction extends ActionSupport {
         }
         return INPUT;
 
+    }
+
+
+private boolean isValidEmail(String emailAddress)
+{
+    
+Pattern pattern=Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", Pattern.CASE_INSENSITIVE);
+Matcher matcher = pattern.matcher(user.getMail());
+return matcher.matches();
+     
+}
+    public void validate() {
+        if (user != null) {
+            
+            if (user.getNom() == null || user.getNom().trim().equals("")) {
+                addFieldError("user.nom", "le nom est necessaire !");                
+                
+            }
+            if (user.getMail()== null || user.getMail().trim().equals("")) {
+                addFieldError("user.mail", "le mail est necessaire !");
+                
+            }        
+            else if (!isValidEmail(user.getMail()))  {
+               
+                addFieldError("user.mail", "le mail est incorrect !");
+                
+            }
+            if (user.getMdp()== null || user.getMdp().trim().equals("")) {
+                addFieldError("user.mdp", "le mot de passe est necessaire !");
+            }
+            if (user.getPrenom()== null || user.getPrenom().trim().equals("")) {
+                addFieldError("user.prenom", "le prenom est necessaire !");
+            }
+            
+        }
     }
 
     public UtilisateurDAO getUserDAO() {
