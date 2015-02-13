@@ -5,6 +5,7 @@
  */
 package fr.alpha.dao;
 
+
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;

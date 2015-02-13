@@ -5,7 +5,7 @@
  */
 package fr.alpha.dao;
 
-import com.googlecode.genericdao.dao.jpa.GeneralDAOImpl;
+import com.googlecode.genericdao.dao.hibernate.GeneralDAOImpl;
 
 /**
  *
