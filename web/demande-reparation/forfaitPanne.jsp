@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <z:layout pageTitle="Type de panne">
         
-    <s:form action="TypePanne" method="post">
+    <s:form action="recapitulatif" method="post">
             <s:select label="Type de panne"
 		headerKey="-1" headerValue="--- Select ---"
                 list="forfaits"

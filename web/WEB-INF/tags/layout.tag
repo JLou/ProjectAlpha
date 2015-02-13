@@ -14,11 +14,15 @@
 <%@attribute name = "titleContent" fragment="true" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>${pageTitle}</title>
         <link rel="icon" type="image/png" href="http://fc01.deviantart.net/fs70/f/2011/104/8/e/custom_website_icon_by_jhewitt86-d3dyh5z.png" />
 
         <!-- Latest compiled and minified CSS -->
@@ -27,101 +31,54 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        <link href="bootstrap v2.3.2/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <style type="text/css">
-            body {
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-            .sidebar-nav {
-                padding: 9px 0;
-            }
-
-            @media (max-width: 980px) {
-                /* Enable use of floated navbar text */
-                .navbar-text.pull-right {
-                    float: none;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                }
-            }
-        </style>
-        <link href="bootstrap v2.3.2/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
 
-
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
-
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="brand" href="/ProjectAlpha/index.jsp">@lpha</a>
-                   
-                    <s:url action="add" var="addURL" />
-                    <s:a href="%{addURL}" cssClass="brand">Nouvel Utilisateur</s:a>
+                    <a class="navbar-brand" href="index">@lpha</a>
 
-                    <s:if test="%{!#session.isLogged}">
-                        <form method="post" action="ValidateUser" class="navbar-form pull-right">
-                            <span class="alert-block" value="message" >${message}</span>
-                            <input placeholder="Identifiant" type="text" name="utilisateur.mail" value="" />
-                            <input placeholder="Mot de Passe" type="password" name="utilisateur.mdp" value=""  />
-                            <input type="submit" class="btn" value="connection" /> 
-                        </form>
-                    </s:if>
-                    <s:else >
-                        Bienvenue <s:text name="%{#session.user_login}"/>
-                        
-                    </s:else>
-
-                        <div class="nav-collapse collapse">
-
-
-                            <ul class="nav">
-
-                                <li><a href="index.jsp">Accueil</a></li>
-
-                                <li><a href="nouvelUtil.jsp">Nouvel Utilisateur</a></li>
-                            </ul>
-                        </div><!--/.nav-collapse -->
-
-                    </div>
                 </div>
-            </div>
 
-            <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="span3" style="position:fixed ; right: 5px "/>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <p class="navbar-text navbar-right">Signed in as Mark Otto</p>
+                    <ul class="nav navbar-nav">
+                        <s:url action="add" var="addURL" />
+                        <li>
+                            <s:a href="%{addURL}" cssClass="brand">Nouvel Utilisateur</s:a>
+                        </li>
+                    </ul>
 
-                    <div class="well sidebar-nav">
-                        <ul class="nav nav-list" >
-                            <jsp:invoke fragment="sideBar"/>
-                        </ul>
-                    </div><!--/.well -->
-
-                </div><!--/span-->
-
-                <jsp:doBody/>
-
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
 
 
+        <jsp:doBody/>
 
-                <hr>
 
-                <footer>
-                    <p>&copy; @lpha 2015</p>
-                </footer>
 
-            </div>
 
-        </body>
-    </html>
+        <hr>
+
+        <footer class="footer">
+            <p class="text-muted container">&copy; @lpha 2015</p>
+        </footer>
+
+    </body>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+</html>
 
 
