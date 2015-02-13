@@ -20,11 +20,6 @@
             <result name="error">error.jsp</result>
         </action>
         
-        <action name="demandeRep" class="fr.alpha.actions.DemandeReparationAction"
-                method="listCategories">
-            <result name="input">demande-reparation/categorie.jsp</result>
-            <result name="error">error.jsp</result>
-        </action>
         <action name="add" class="fr.alpha.actions.UtilisateurAction"
                 method="enregistrerEnBase">
             <result name="input">nouvelUtil.jsp</result>
@@ -32,7 +27,40 @@
             <result name="error">error.jsp</result>
         </action>
         
-        <action name="demandeRep2" class="fr.alpha.actions.DemandeReparationAction"
+
+        
+    </package>
+    
+    <package name="user" namespace="/" extends="struts-default">
+        <interceptors>
+            <interceptor name="authentication"
+                class="fr.alpha.interceptors.AuthenticationInterceptor"></interceptor>
+            <interceptor-stack name="authStack">
+                <interceptor-ref name="authentication"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+ 
+        <default-interceptor-ref name="authStack"></default-interceptor-ref>
+ 
+        <global-results>
+            <result name="login" type="redirect">/login</result>
+        </global-results>
+ 
+        <action name="login">
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result>/login.jsp</result>
+        </action>
+ 
+        <action name="login2" class="fr.alpha.actions.UtilisateurAction"
+                method="isValidUser">
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="redirectAction">demandeRep</result>
+            <result name="error">error.jsp</result>
+            <result name="input">login.jsp</result>
+        </action>
+ 
+         <action name="demandeRep2" class="fr.alpha.actions.DemandeReparationAction"
                 method="listModels">
             <result name="input">demande-reparation/modele.jsp</result>
             <result name="error">error.jsp</result>
@@ -44,5 +72,10 @@
             <result name="error">error.jsp</result>
         </action>
         
+        <action name="demandeRep" class="fr.alpha.actions.DemandeReparationAction"
+                method="listCategories">
+            <result name="input">demande-reparation/categorie.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
     </package>
 </struts>
