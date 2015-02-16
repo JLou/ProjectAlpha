@@ -10,10 +10,12 @@ import fr.alpha.dao.CategorieDAO;
 import fr.alpha.dao.ForfaitDAO;
 import fr.alpha.dao.ModelDAO;
 import fr.alpha.dao.VendeurDAO;
+import fr.alpha.interceptors.UserAware;
 import fr.alpha.model.Categorie;
 import fr.alpha.model.Forfait;
 import fr.alpha.model.Modele;
 import fr.alpha.model.Vendeur;
+import fr.alpha.model.Utilisateur;
 import fr.alpha.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -23,11 +25,12 @@ import org.hibernate.Transaction;
  *
  * @author INTI
  */
-public class DemandeReparationAction extends ActionSupport {
+public class DemandeReparationAction extends ActionSupport implements UserAware {
     
     List<Categorie> categories;
     private List<Modele> models;
     private List<Forfait> forfaits;
+    private Forfait forfait;
     
     private int yourCategory;
     private int yourModel;
@@ -41,6 +44,8 @@ public class DemandeReparationAction extends ActionSupport {
     private int yourVendeur;
     private VendeurDAO vendeurDAO;
     
+    private Utilisateur utilisateur;
+
     public List<Categorie> getCategories() {
         return categories;
     }
@@ -128,6 +133,29 @@ public class DemandeReparationAction extends ActionSupport {
         vendeurs = vendeurDAO.findByCode(863752);
         tx.commit();
         return INPUT;
+    public String recapitulatif() {
+        SessionFactory factory = HibernateUtil.createSessionFactory();
+        forfaitDAO.setSessionFactory(factory);
+        Transaction tx = factory.getCurrentSession().beginTransaction();
+        forfait = forfaitDAO.find(yourForfait);
+        
+        return SUCCESS;
+    }
+
+    public Forfait getForfait() {
+        return forfait;
+    }
+
+    public void setForfait(Forfait forfait) {
+        this.forfait = forfait;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
     public List<Modele> getModels() {
@@ -161,6 +189,11 @@ public class DemandeReparationAction extends ActionSupport {
 
     public void setModelDAO(ModelDAO modelDAO) {
         this.modelDAO = modelDAO;
+    }
+
+    @Override
+    public void setUser(Utilisateur user) {
+        utilisateur = user;
     }
     
 }

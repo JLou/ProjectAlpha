@@ -98,6 +98,11 @@
             <result name="input">demande-reparation/categorie.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+        <action name="recapitulatif" class="fr.alpha.actions.DemandeReparationAction"
+                method="recapitulatif">
+            <result name="success">demande-reparation/recapitulatif.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
     </package>
     
     

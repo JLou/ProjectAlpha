@@ -11,6 +11,7 @@ import fr.alpha.model.Utilisateur;
 
 import fr.alpha.dao.UtilisateurDAO;
 import fr.alpha.util.HibernateUtil;
+import fr.alpha.util.Locations;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,25 +28,8 @@ public class UtilisateurAction extends ActionSupport {
     private boolean valid;
     private String message = "";
 
-    private Map<Integer, String> towns;
-    private List<String> towns2;
-
-    public List<String> getTowns2() {
-        return towns2;
-    }
-
-    public void setTowns2(List<String> towns2) {
-        this.towns2 = towns2;
-    }
-
     public UtilisateurAction() {
         this.userDAO = new UtilisateurDAO();
-        towns = new HashMap<>();
-
-        towns.put(1, "Paris");
-        towns.put(2, "Lens");
-        towns.put(3, "Caen");
-
     }
 
     public String getMessage() {
@@ -93,11 +77,7 @@ public class UtilisateurAction extends ActionSupport {
     }
 
     public Map<Integer, String> getTowns() {
-        return towns;
-    }
-
-    public void setTowns(Map<Integer, String> towns) {
-        this.towns = towns;
+        return Locations.towns;
     }
 
     public Utilisateur getUtilisateur() {
@@ -135,38 +115,36 @@ public class UtilisateurAction extends ActionSupport {
 
     }
 
+    private boolean isValidEmail(String emailAddress) {
 
-private boolean isValidEmail(String emailAddress)
-{
-    
-Pattern pattern=Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", Pattern.CASE_INSENSITIVE);
-Matcher matcher = pattern.matcher(user.getMail());
-return matcher.matches();
-     
-}
+        Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(user.getMail());
+        return matcher.matches();
+
+    }
+
     public void validate() {
         if (user != null) {
-            
+
             if (user.getNom() == null || user.getNom().trim().equals("")) {
-                addFieldError("user.nom", "le nom est necessaire !");                
-                
+                addFieldError("user.nom", "le nom est necessaire !");
+
             }
-            if (user.getMail()== null || user.getMail().trim().equals("")) {
+            if (user.getMail() == null || user.getMail().trim().equals("")) {
                 addFieldError("user.mail", "le mail est necessaire !");
-                
-            }        
-            else if (!isValidEmail(user.getMail()))  {
-               
+
+            } else if (!isValidEmail(user.getMail())) {
+
                 addFieldError("user.mail", "le mail est incorrect !");
-                
+
             }
-            if (user.getMdp()== null || user.getMdp().trim().equals("")) {
+            if (user.getMdp() == null || user.getMdp().trim().equals("")) {
                 addFieldError("user.mdp", "le mot de passe est necessaire !");
             }
-            if (user.getPrenom()== null || user.getPrenom().trim().equals("")) {
+            if (user.getPrenom() == null || user.getPrenom().trim().equals("")) {
                 addFieldError("user.prenom", "le prenom est necessaire !");
             }
-            
+
         }
     }
 
