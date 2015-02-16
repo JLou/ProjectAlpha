@@ -5,6 +5,8 @@
  */
 package fr.alpha.model;
 
+import fr.alpha.util.Locations;
+
 /**
  *
  * @author INTI
@@ -36,7 +38,9 @@ public class DemandeReparation {
     public int getAdresseDeRetour() {
         return adresseDeRetour;
     }
-
+    public String getAdresseRetour (){
+        return Locations.towns.get(adresseDeRetour);
+    }
     public void setAdresseDeRetour(int adresseDeRetour) {
         this.adresseDeRetour = adresseDeRetour;
     }

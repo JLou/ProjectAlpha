@@ -15,7 +15,7 @@
                 </tr>
                 <tr>
                     <th>Adresse:</th>
-                    <td><s:text name="%{session.demande.adresseDeRetour}" /></td>
+                    <td><s:text name="%{#session.demande.adresseRetour}" /></td>
                 </tr>
             </table>
         </div>
