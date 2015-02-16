@@ -1,6 +1,7 @@
 package fr.alpha.model;
 // Generated 11 f�vr. 2015 15:14:00 by Hibernate Tools 4.3.1
 
+import fr.alpha.util.Locations;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -101,6 +102,10 @@ public class Utilisateur implements java.io.Serializable {
 
     public void setMdp(String Mdp) {
         this.Mdp = Mdp;
+    }
+    
+    public String getTownName() {
+        return Locations.towns.get(this.adresse);
     }
 
 }
