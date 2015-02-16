@@ -11,6 +11,7 @@ and open the template in the editor.
 
 .recap {
     width:90%;
+    margin:auto;
 }
 .recap-header {
     padding: 0% 5%;
@@ -45,7 +46,7 @@ and open the template in the editor.
 .recap-table {
     border:1px solid black;
     width:100%;
-    margin:5% 5% 2% 5%;
+    /*margin:5% 5% 2% 5%;*/
     
 }
 .recap-table th {

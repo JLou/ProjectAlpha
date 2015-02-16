@@ -152,8 +152,8 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         forfait = forfaitDAO.find(yourForfait);
         modelDAO.setSessionFactory(factory);
         Modele modele = modelDAO.find(yourModel);
-
-        session.put("demande", new DemandeReparation(modele, forfait));
+        
+        session.put("demande", new DemandeReparation(modele, forfait, description, ville));
 
         return SUCCESS;
     }
@@ -204,6 +204,22 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         this.categorieDAO = categorieDAO;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getVille() {
+        return ville;
+    }
+
+    public void setVille(int ville) {
+        this.ville = ville;
+    }
+
     public ModelDAO getModelDAO() {
         return modelDAO;
     }
@@ -223,7 +239,7 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
     }
 
     public Map<Integer, String> getTowns() {
-        Locations.towns;
+        return Locations.towns;
     }
 
 }

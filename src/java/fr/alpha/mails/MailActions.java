@@ -7,16 +7,8 @@ package fr.alpha.mails;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import fr.alpha.mails.Mail;
 import fr.alpha.model.Utilisateur;
 import java.util.Map;
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import org.apache.struts2.interceptor.SessionAware;
 
 
