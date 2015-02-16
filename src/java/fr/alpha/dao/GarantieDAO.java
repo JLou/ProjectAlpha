@@ -5,15 +5,18 @@
  */
 package fr.alpha.dao;
 
-import com.googlecode.genericdao.dao.hibernate.GeneralDAOImpl;
+import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
+import fr.alpha.model.Garantie;
 
 /**
  *
  * @author INTI
  */
-public class GarantieDAO extends GeneralDAOImpl{
+public class GarantieDAO extends GenericDAOImpl<Garantie, Long>{
 
     public GarantieDAO() {
     }
+    
+    
     
 }
