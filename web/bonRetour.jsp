@@ -11,11 +11,11 @@
             <table>
                 <tr>
                     <th>Nom, Prenom:</th>
-                    <td><s:text name="utilisateur.nom" />, <s:text name="utilisateur.prenom" /></td>
+                    <td><s:text name="%{#session.USER.nom}" />, <s:text name="%{#session.USER.prenom}" /></td>
                 </tr>
                 <tr>
                     <th>Adresse:</th>
-                    <td><s:text name="utilisateur.townName" /></td>
+                    <td><s:text name="%{session.demande.adresseDeRetour}" /></td>
                 </tr>
             </table>
         </div>
