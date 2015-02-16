@@ -11,8 +11,8 @@
         <property name="nomEntreprise" type="string">
             <column name="nom_entreprise" length="45" not-null="true" />
         </property>
-        <property name="nomVendeur" type="string">
-            <column name="nom_vendeur" length="45" not-null="true" />
+        <property name="codeVendeur" type="int">
+            <column name="code_vendeur" not-null="true" />
         </property>
         <property name="dernierPaiement" type="date">
             <column name="dernier_paiement" length="10" not-null="true" />
@@ -31,5 +31,8 @@
                 <column name="garantie_idgarantie" not-null="true" />
             </many-to-many>
         </set>
+        <property name="mdpVendeur" type="string">
+            <column name="mdp_vendeur" length="45" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

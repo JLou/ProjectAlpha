@@ -1,5 +1,5 @@
 package fr.alpha.model;
-// Generated 11 févr. 2015 15:14:00 by Hibernate Tools 4.3.1
+// Generated 11 fï¿½vr. 2015 15:14:00 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,30 +14,51 @@ public class Vendeur  implements java.io.Serializable {
 
      private Integer idvendeur;
      private String nomEntreprise;
-     private String nomVendeur;
+     private int codeVendeur;
      private Date dernierPaiement;
      private float ardoise;
      private float pourcentage;
+     private String mdpVendeur;
+
+    
      private Set<Garantie> garanties = new HashSet<Garantie>(0);
 
     public Vendeur() {
     }
 
 	
-    public Vendeur(String nomEntreprise, String nomVendeur, Date dernierPaiement, float ardoise, float pourcentage) {
+    public Vendeur(String nomEntreprise, int codeVendeur, Date dernierPaiement, float ardoise, float pourcentage, String mdpVendeur) {
         this.nomEntreprise = nomEntreprise;
-        this.nomVendeur = nomVendeur;
+        this.codeVendeur = codeVendeur;
         this.dernierPaiement = dernierPaiement;
         this.ardoise = ardoise;
         this.pourcentage = pourcentage;
+        this.mdpVendeur = mdpVendeur;
     }
-    public Vendeur(String nomEntreprise, String nomVendeur, Date dernierPaiement, float ardoise, float pourcentage, Set<Garantie> garanties) {
+    public Vendeur(String nomEntreprise, int codeVendeur, Date dernierPaiement, float ardoise, float pourcentage, Set<Garantie> garanties, String mdpVendeur) {
        this.nomEntreprise = nomEntreprise;
-       this.nomVendeur = nomVendeur;
+       this.codeVendeur = codeVendeur;
        this.dernierPaiement = dernierPaiement;
        this.ardoise = ardoise;
        this.pourcentage = pourcentage;
        this.garanties = garanties;
+       this.mdpVendeur = mdpVendeur;
+    }
+    
+    public int getCodeVendeur() {
+        return codeVendeur;
+    }
+
+    public void setCodeVendeur(int codeVendeur) {
+        this.codeVendeur = codeVendeur;
+    }
+
+    public String getMdpVendeur() {
+        return mdpVendeur;
+    }
+
+    public void setMdpVendeur(String mdpVendeur) {
+        this.mdpVendeur = mdpVendeur;
     }
    
     public Integer getIdvendeur() {
@@ -54,13 +75,7 @@ public class Vendeur  implements java.io.Serializable {
     public void setNomEntreprise(String nomEntreprise) {
         this.nomEntreprise = nomEntreprise;
     }
-    public String getNomVendeur() {
-        return this.nomVendeur;
-    }
     
-    public void setNomVendeur(String nomVendeur) {
-        this.nomVendeur = nomVendeur;
-    }
     public Date getDernierPaiement() {
         return this.dernierPaiement;
     }

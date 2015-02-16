@@ -9,9 +9,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import fr.alpha.dao.CategorieDAO;
 import fr.alpha.dao.ForfaitDAO;
 import fr.alpha.dao.ModelDAO;
+import fr.alpha.dao.VendeurDAO;
 import fr.alpha.model.Categorie;
 import fr.alpha.model.Forfait;
 import fr.alpha.model.Modele;
+import fr.alpha.model.Vendeur;
 import fr.alpha.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -34,7 +36,11 @@ public class DemandeReparationAction extends ActionSupport {
     private CategorieDAO categorieDAO;
     private ModelDAO modelDAO;
     private ForfaitDAO forfaitDAO;
-
+    
+    private Vendeur vendeurs;
+    private int yourVendeur;
+    private VendeurDAO vendeurDAO;
+    
     public List<Categorie> getCategories() {
         return categories;
     }
@@ -80,6 +86,8 @@ public class DemandeReparationAction extends ActionSupport {
         categorieDAO = new CategorieDAO();
         modelDAO = new ModelDAO();
         forfaitDAO = new ForfaitDAO();
+        
+        vendeurDAO = new VendeurDAO();
     }
     
     public String listCategories() {
@@ -109,8 +117,16 @@ public class DemandeReparationAction extends ActionSupport {
         forfaits = forfaitDAO.findByCategory(yourCategory);
         tx.commit();
         
-        System.out.println(forfaits);
        
+        return INPUT;
+    }
+    
+    public String listVendeurs() {
+        SessionFactory factory = HibernateUtil.createSessionFactory();
+        vendeurDAO.setSessionFactory(factory);
+        Transaction tx = factory.getCurrentSession().beginTransaction();
+        vendeurs = vendeurDAO.findByCode(863752);
+        tx.commit();
         return INPUT;
     }
 

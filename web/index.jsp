@@ -16,12 +16,7 @@
             <th>Item Code</th>
         </tr>
         <tr>
-            <s:iterator value="itemList" var="items">
-
-                <td><s:property value="idproduit"/></td>
-
-            </s:iterator>
-
+            
         </tr>
         <tr>
         <s:if test="%{#session.isLogged}">

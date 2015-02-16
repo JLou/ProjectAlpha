@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 import fr.alpha.model.Utilisateur;
+import fr.alpha.model.Vendeur;
  
 public class AuthenticationInterceptor implements Interceptor {
  
