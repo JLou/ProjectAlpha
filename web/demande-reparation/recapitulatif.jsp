@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    <div>
+    <div class="recap">
         <table class="recap-table">
             <thead>
                 <tr>
@@ -63,6 +63,12 @@
                 <td><s:text name="forfait.total" />€</td>
             </tr>
         </table>
-        <a href="payement"><button type="button" class="btn btn-success">Payement</button></a>
+        <p class="recap-payement">
+            <a href="payement"><button type="button" class="btn btn-success">Paiement 
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                </button></a>
+        </p>
+        <div class="clearfix"></div>
+        
     </div>
 </z:layout>

@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : INTI
 */
 
+
+.recap {
+    width:90%;
+}
 .recap-header {
     padding: 0% 5%;
 }
@@ -40,8 +44,8 @@ and open the template in the editor.
 }
 .recap-table {
     border:1px solid black;
-    width:90%;
-    margin:5%;
+    width:100%;
+    margin:5% 5% 2% 5%;
     
 }
 .recap-table th {
@@ -71,7 +75,12 @@ and open the template in the editor.
 }
 .footer {
     background-color: #F5F5F5;
+    clear:both;
 }
 input[type=number]{
     line-height: 20px;
+}
+
+.recap-payement {
+    float:right;
 }
