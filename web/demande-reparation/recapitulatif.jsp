@@ -39,6 +39,8 @@
     </div>
     <div class="clearfix"></div>
     <div class="recap">
+        <p>Demande de réparation pour le modèle : <s:text name="%{#session.demande.modele.nom}" /></p>
+        <p><strong>Description :</strong> <s:text name="%{#session.demande.desc}" /></p>
         <table class="recap-table">
             <thead>
                 <tr>

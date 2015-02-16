@@ -18,6 +18,7 @@ import fr.alpha.model.Modele;
 import fr.alpha.model.Vendeur;
 import fr.alpha.model.Utilisateur;
 import fr.alpha.util.HibernateUtil;
+import fr.alpha.util.Locations;
 import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
@@ -29,7 +30,7 @@ import org.hibernate.Transaction;
  * @author INTI
  */
 public class DemandeReparationAction extends ActionSupport implements UserAware, SessionAware {
-    
+
     List<Categorie> categories;
     private List<Modele> models;
     private List<Forfait> forfaits;
@@ -42,11 +43,15 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
     private CategorieDAO categorieDAO;
     private ModelDAO modelDAO;
     private ForfaitDAO forfaitDAO;
-    
+
     private Vendeur vendeurs;
     private int yourVendeur;
     private VendeurDAO vendeurDAO;
-    
+
+    //Fiche Rep
+    private String description;
+    private int ville;
+
     private Utilisateur utilisateur;
     private Map<String, Object> session;
 
@@ -94,7 +99,7 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         categorieDAO = new CategorieDAO();
         modelDAO = new ModelDAO();
         forfaitDAO = new ForfaitDAO();
-        
+
         vendeurDAO = new VendeurDAO();
     }
 
@@ -129,7 +134,7 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
 
         return INPUT;
     }
-    
+
     public String listVendeurs() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         vendeurDAO.setSessionFactory(factory);
@@ -138,8 +143,8 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         tx.commit();
         return INPUT;
     }
-        
 
+    
     public String recapitulatif() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         forfaitDAO.setSessionFactory(factory);
@@ -148,9 +153,14 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         modelDAO.setSessionFactory(factory);
         Modele modele = modelDAO.find(yourModel);
         
-        session.put("demande", new DemandeReparation(modele, forfait));
-        
+        session.put("demande", new DemandeReparation(modele, forfait, description, ville));
+
         return SUCCESS;
+    }
+
+    public String ficheReparation() {
+
+        return INPUT;
     }
 
     public Forfait getForfait() {
@@ -194,6 +204,22 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         this.categorieDAO = categorieDAO;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getVille() {
+        return ville;
+    }
+
+    public void setVille(int ville) {
+        this.ville = ville;
+    }
+
     public ModelDAO getModelDAO() {
         return modelDAO;
     }
@@ -211,5 +237,9 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
     public void setSession(Map<String, Object> map) {
         session = map;
     }
-    
+
+    public Map<Integer, String> getTowns() {
+        return Locations.towns;
+    }
+
 }
