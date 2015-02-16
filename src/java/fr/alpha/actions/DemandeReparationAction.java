@@ -133,6 +133,8 @@ public class DemandeReparationAction extends ActionSupport implements UserAware 
         vendeurs = vendeurDAO.findByCode(863752);
         tx.commit();
         return INPUT;
+    }
+        
     public String recapitulatif() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         forfaitDAO.setSessionFactory(factory);
