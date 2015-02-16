@@ -14,4 +14,11 @@
         <s:textfield placeholder="Mot de Passe" type="password" name="utilisateur.mdp" value=""  />
         <s:textfield type="submit" class="btn" value="connection" /> 
     </s:form>
+        
+    <s:form method="post" action="ValidateVendeur">
+        <span class="alert-block" value="message" >${message_vendeur}</span>
+        <s:textfield placeholder="Code Vendeur" type="number" name="vendeur.codeVendeur" value="" />
+        <s:textfield placeholder="Mot de Passe" type="password" name="vendeur.MdpVendeur" value=""  />
+        <s:textfield type="submit" class="btn" value="connection" /> 
+    </s:form>
 </z:layout>

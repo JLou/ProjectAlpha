@@ -9,10 +9,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import fr.alpha.dao.CategorieDAO;
 import fr.alpha.dao.ForfaitDAO;
 import fr.alpha.dao.ModelDAO;
+import fr.alpha.dao.VendeurDAO;
 import fr.alpha.interceptors.UserAware;
 import fr.alpha.model.Categorie;
 import fr.alpha.model.Forfait;
 import fr.alpha.model.Modele;
+import fr.alpha.model.Vendeur;
 import fr.alpha.model.Utilisateur;
 import fr.alpha.util.HibernateUtil;
 import java.util.List;
@@ -37,6 +39,11 @@ public class DemandeReparationAction extends ActionSupport implements UserAware 
     private CategorieDAO categorieDAO;
     private ModelDAO modelDAO;
     private ForfaitDAO forfaitDAO;
+    
+    private Vendeur vendeurs;
+    private int yourVendeur;
+    private VendeurDAO vendeurDAO;
+    
     private Utilisateur utilisateur;
 
     public List<Categorie> getCategories() {
@@ -83,6 +90,8 @@ public class DemandeReparationAction extends ActionSupport implements UserAware 
         categorieDAO = new CategorieDAO();
         modelDAO = new ModelDAO();
         forfaitDAO = new ForfaitDAO();
+        
+        vendeurDAO = new VendeurDAO();
     }
 
     public String listCategories() {
@@ -116,6 +125,16 @@ public class DemandeReparationAction extends ActionSupport implements UserAware 
 
         return INPUT;
     }
+    
+    public String listVendeurs() {
+        SessionFactory factory = HibernateUtil.createSessionFactory();
+        vendeurDAO.setSessionFactory(factory);
+        Transaction tx = factory.getCurrentSession().beginTransaction();
+        vendeurs = vendeurDAO.findByCode(863752);
+        tx.commit();
+        return INPUT;
+    }
+        
 
     public String recapitulatif() {
         SessionFactory factory = HibernateUtil.createSessionFactory();

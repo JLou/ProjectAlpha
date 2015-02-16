@@ -6,8 +6,8 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         <action name="ValidateUser"
-                 class="fr.alpha.actions.UtilisateurAction"
-                 method="isValidUser">
+                class="fr.alpha.actions.UtilisateurAction"
+                method="isValidUser">
         
             <result name="success" type="redirectAction">demandeRep</result>
             <result name="error" >index.jsp</result>
@@ -27,10 +27,30 @@
             <result name="error">error.jsp</result>
         </action>
         
-            <action name="sendMail" class="fr.alpha.mails.MailActions">
-                <result name="success">confirmation.jsp</result>
-                <result name="input">index.jsp</result>
-            </action>
+        <action name="ValidateVendeur"
+                class="fr.alpha.actions.VendeurAction"
+                method="isValidVendeur">
+        
+            <result name="success">nouvelUtilVendeur.jsp</result>
+            <result name="error" >index.jsp</result>
+            <result name="input">login.jsp</result>
+        </action>
+        
+        <action name="addUserVendeur" class="fr.alpha.actions.VendeurAction"
+                method="addUser">
+            <result name="success" type="redirectAction">demandeRep</result>
+            <result name="input" >index.jsp</result>
+            
+        </action>
+        
+        <action name="sendMail" class="fr.alpha.mails.MailActions">
+            <result name="success">confirmation.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
+        
+        <action name="logOut" class="fr.alpha.actions.UtilisateurAction">
+            <result name="success">index.jsp</result>
+        </action>
         
 
         
@@ -67,7 +87,7 @@
         </action>
  
         <action name="demandeRep2" class="fr.alpha.actions.DemandeReparationAction"
-                 method="listModels">
+                method="listModels">
             <result name="input">demande-reparation/modele.jsp</result>
             <result name="error">error.jsp</result>
         </action>
@@ -88,6 +108,10 @@
             <result name="success">demande-reparation/recapitulatif.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+        <action name="logout" class="fr.alpha.actions.UtilisateurAction" method="logOut">
+            <result name="success">index.jsp</result>
+        </action>
+        
            <action name="etat" class="fr.alpha.actions.EtatReparation">
             <result name="success">etat.jsp</result>
             <result name="error">error.jsp</result>

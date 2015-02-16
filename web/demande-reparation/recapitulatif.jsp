@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <th>Adresse:</th>
-                    <td><s:text name="utilisateur.adresse" /></td>
+                    <td><s:text name="utilisateur.townName" /></td>
                 </tr>
             </table>
         </div>

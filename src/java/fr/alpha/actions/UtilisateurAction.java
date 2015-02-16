@@ -18,15 +18,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.servlet.http.HttpSession;
+import net.sf.ehcache.Statistics;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public class UtilisateurAction extends ActionSupport {
-
+    
     private Utilisateur utilisateur;
     private UtilisateurDAO userDAO;
     private boolean valid;
     private String message = "";
+    Utilisateur user;
+    UtilisateurDAO uDao = new UtilisateurDAO();
+
 
     public UtilisateurAction() {
         this.userDAO = new UtilisateurDAO();
@@ -76,6 +81,15 @@ public class UtilisateurAction extends ActionSupport {
 
     }
 
+    public String logOut() {
+        Map sessionMap = ActionContext.getContext().getSession();
+        sessionMap.remove("USER");
+        sessionMap.remove("isLogged");
+        sessionMap.put("isLogged", "false");
+        
+        return SUCCESS;
+    }
+
     public Map<Integer, String> getTowns() {
         return Locations.towns;
     }
@@ -96,9 +110,7 @@ public class UtilisateurAction extends ActionSupport {
         this.valid = valid;
     }
 
-    Utilisateur user;
-    UtilisateurDAO uDao = new UtilisateurDAO();
-
+    
     public String enregistrerEnBase() {
 
         if (user != null && !user.getNom().equals("")
