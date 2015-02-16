@@ -14,6 +14,7 @@ import fr.alpha.dao.VendeurDAO;
 import fr.alpha.model.Utilisateur;
 import fr.alpha.model.Vendeur;
 import fr.alpha.util.HibernateUtil;
+import fr.alpha.util.Locations;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,16 +36,9 @@ public class VendeurAction extends ActionSupport implements SessionAware {
     private Vendeur vendeur;
     private String message_vendeur = "";
     private Map<String, Object> session;
-    private Map<Integer, String> towns;
 
     public VendeurAction() {
         this.vendeurDAO = new VendeurDAO();
-        
-        towns = new HashMap<>();
-
-        towns.put(1, "Paris");
-        towns.put(2, "Lens");
-        towns.put(3, "Caen");
         
     }
 
@@ -135,13 +129,9 @@ public class VendeurAction extends ActionSupport implements SessionAware {
     }
 
     public Map<Integer, String> getTowns() {
-        return towns;
+        return Locations.towns;
     }
 
-    public void setTowns(Map<Integer, String> towns) {
-        this.towns = towns;
-    }
-    
     public Vendeur getVendeur() {
         return vendeur;
     }
