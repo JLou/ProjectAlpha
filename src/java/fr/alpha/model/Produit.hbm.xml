@@ -21,9 +21,8 @@
             <column name="id_modele" not-null="true" />
         </property>
         
-        <one-to-one name="infosReparation" class="fr.alpha.model.InfosReparation" cascade="save-update"> 
-            <column name="produit_infosReparation" not-null="true" />        
-        </one-to-one>
+        <one-to-one name="infosReparation" class="fr.alpha.model.InfosReparation" cascade="save-update"/> 
+            
         
        
     </class>

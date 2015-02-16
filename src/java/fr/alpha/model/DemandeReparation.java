@@ -13,8 +13,8 @@ public class DemandeReparation {
     private Modele modele;
     private Forfait forfait;
 
-    public DemandeReparation(Modele produit, Forfait forfait) {
-        this.modele = produit;
+    public DemandeReparation(Modele modele, Forfait forfait) {
+        this.modele = modele;
         this.forfait = forfait;
     }
 
@@ -23,8 +23,8 @@ public class DemandeReparation {
         return modele;
     }
 
-    public void setModele(Modele produit) {
-        this.modele = produit;
+    public void setModele(Modele modele) {
+        this.modele = modele;
     }
 
     public Forfait getForfait() {

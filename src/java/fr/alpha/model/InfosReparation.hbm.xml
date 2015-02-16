@@ -8,9 +8,8 @@
             <column name="idinfos_reparation" />
             <generator class="identity" />
         </id>
-        <one-to-one name="produit" class="fr.alpha.model.Produit" fetch="select">
-            <column name="produit_idproduit" not-null="true" />
-        </one-to-one>
+        <one-to-one name="produit" class="fr.alpha.model.Produit" fetch="select"/>
+           
         <property name="adresse" type="string">
             <column name="adresse" length="45" not-null="true" />
         </property>

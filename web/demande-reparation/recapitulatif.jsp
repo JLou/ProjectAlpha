@@ -63,11 +63,6 @@
                 <td><s:text name="forfait.total" />€</td>
             </tr>
         </table>
-                <p><s:text name="%{#session.demande.produit.nom}"/></p>
-                <p><s:text name="%{#session.demande.forfait.typePanne}"/></p>
-                <p><s:text name="%{#session.demande.produit.idmodele}"/></p>
-        <s:form>
-            <s:hidden name="forfait.id" value="forfait.id" />
-        </s:form>
+        <a href="payement"><button type="button" class="btn btn-success">Payement</button></a>
     </div>
 </z:layout>
