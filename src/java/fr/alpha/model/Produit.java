@@ -1,5 +1,5 @@
 package fr.alpha.model;
-// Generated 11 févr. 2015 15:14:00 by Hibernate Tools 4.3.1
+// Generated 11 fï¿½vr. 2015 15:14:00 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,8 +16,17 @@ public class Produit  implements java.io.Serializable {
      private Utilisateur utilisateur;
      private int idUtilisateur;
      private int idModele;
-     private Set<InfosReparation> infosReparations = new HashSet<InfosReparation>(0);
+     
+     private InfosReparation infosReparation;
 
+    public InfosReparation getInfosReparation() {
+        return infosReparation;
+    }
+
+    public void setInfosReparation(InfosReparation infosReparation) {
+        this.infosReparation = infosReparation;
+    }
+     
     public Produit() {
     }
 
@@ -28,12 +37,12 @@ public class Produit  implements java.io.Serializable {
         this.idUtilisateur = idUtilisateur;
         this.idModele = idModele;
     }
-    public Produit(Modele modele, Utilisateur utilisateur, int idUtilisateur, int idModele, Set<InfosReparation> infosReparations) {
+    public Produit(Modele modele, Utilisateur utilisateur, int idUtilisateur, int idModele, InfosReparation infosReparation) {
        this.modele = modele;
        this.utilisateur = utilisateur;
        this.idUtilisateur = idUtilisateur;
        this.idModele = idModele;
-       this.infosReparations = infosReparations;
+       this.infosReparation = infosReparation;
     }
    
     public Integer getIdproduit() {
@@ -70,13 +79,6 @@ public class Produit  implements java.io.Serializable {
     
     public void setIdModele(int idModele) {
         this.idModele = idModele;
-    }
-    public Set<InfosReparation> getInfosReparations() {
-        return this.infosReparations;
-    }
-    
-    public void setInfosReparations(Set<InfosReparation> infosReparations) {
-        this.infosReparations = infosReparations;
     }
 
 

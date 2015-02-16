@@ -9,7 +9,7 @@
     </head>
     <body>
        
-        <s:if test="#session.isLogged == 'true'">
+        <s:if test="#session.isLogged">
             <s:property value="#session.user_login"/>
             <s:property value="#session.user_mdp"/>
         </s:if>

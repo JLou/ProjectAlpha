@@ -33,7 +33,7 @@ public class VendeurAction extends ActionSupport implements SessionAware {
     private VendeurDAO vendeurDAO;
     private boolean valid;
     private Vendeur vendeur;
-    private String message = "";
+    private String message_vendeur = "";
     private Map<String, Object> session;
     private Map<Integer, String> towns;
 
@@ -68,12 +68,12 @@ public class VendeurAction extends ActionSupport implements SessionAware {
                 return SUCCESS;
 
             } else {
-                setMessage("champs invalides");
+                setMessage_vendeur("champs invalides");
                 return ERROR;
             }
 
         }
-        setMessage("Code vendeur incorrect");
+        setMessage_vendeur("Code vendeur incorrect");
         return INPUT;
         } catch(Exception e) {
             e.printStackTrace();
@@ -150,12 +150,12 @@ public class VendeurAction extends ActionSupport implements SessionAware {
         this.vendeur = vendeur;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMessage_vendeur() {
+        return message_vendeur;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessage_vendeur(String message_vendeur) {
+        this.message_vendeur = message_vendeur;
     }
 
     public VendeurDAO getVendeurDAO() {

@@ -1,5 +1,5 @@
 package fr.alpha.model;
-// Generated 11 févr. 2015 15:14:00 by Hibernate Tools 4.3.1
+// Generated 11 fï¿½vr. 2015 15:14:00 by Hibernate Tools 4.3.1
 
 
 
@@ -16,6 +16,9 @@ public class InfosReparation  implements java.io.Serializable {
      private int idproduit;
      private int idutilisateur;
      private String etat;
+    
+
+
 
     public InfosReparation() {
     }

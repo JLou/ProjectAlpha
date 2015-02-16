@@ -72,3 +72,6 @@ and open the template in the editor.
 .footer {
     background-color: #F5F5F5;
 }
+input[type=number]{
+    line-height: 20px;
+}

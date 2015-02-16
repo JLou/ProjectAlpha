@@ -34,11 +34,11 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
     private List<Modele> models;
     private List<Forfait> forfaits;
     private Forfait forfait;
-    
+
     private int yourCategory;
     private int yourModel;
     private int yourForfait;
-    
+
     private CategorieDAO categorieDAO;
     private ModelDAO modelDAO;
     private ForfaitDAO forfaitDAO;
@@ -89,8 +89,7 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
     public void setYourCategory(int yourCategory) {
         this.yourCategory = yourCategory;
     }
-    
-    
+
     public DemandeReparationAction() {
         categorieDAO = new CategorieDAO();
         modelDAO = new ModelDAO();
@@ -98,35 +97,36 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         
         vendeurDAO = new VendeurDAO();
     }
-    
+
     public String listCategories() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         categorieDAO.setSessionFactory(factory);
         Transaction tx = factory.getCurrentSession().beginTransaction();
         categories = categorieDAO.findAll();
         //tx.commit();
-       
+
         return INPUT;
     }
-    
+
     public String listModels() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         modelDAO.setSessionFactory(factory);
         Transaction tx = factory.getCurrentSession().beginTransaction();
         models = modelDAO.findByCategory(yourCategory);
         tx.commit();
-       
+
         return INPUT;
     }
-    
+
     public String listForfaits() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         forfaitDAO.setSessionFactory(factory);
         Transaction tx = factory.getCurrentSession().beginTransaction();
         forfaits = forfaitDAO.findByCategory(yourCategory);
         tx.commit();
-        
-       
+
+        System.out.println(forfaits);
+
         return INPUT;
     }
     
@@ -139,6 +139,7 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         return INPUT;
     }
         
+
     public String recapitulatif() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         forfaitDAO.setSessionFactory(factory);
@@ -170,7 +171,7 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
 
     public List<Modele> getModels() {
         return models;
-        
+
     }
 
     public void setModels(List<Modele> models) {
