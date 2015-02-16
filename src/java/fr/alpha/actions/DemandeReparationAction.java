@@ -144,7 +144,6 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         return INPUT;
     }
 
-    
     public String recapitulatif() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         forfaitDAO.setSessionFactory(factory);
