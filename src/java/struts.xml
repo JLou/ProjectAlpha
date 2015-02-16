@@ -33,6 +33,7 @@
         
             <result name="success">nouvelUtilVendeur.jsp</result>
             <result name="error" >index.jsp</result>
+            <result name="input">login.jsp</result>
         </action>
         
         <action name="addUserVendeur" class="fr.alpha.actions.VendeurAction"
@@ -45,6 +46,10 @@
         <action name="sendMail" class="fr.alpha.mails.MailActions">
             <result name="success">confirmation.jsp</result>
             <result name="input">index.jsp</result>
+        </action>
+        
+        <action name="logOut" class="fr.alpha.actions.UtilisateurAction">
+            <result name="success">index.jsp</result>
         </action>
         
 
@@ -103,6 +108,10 @@
             <result name="success">demande-reparation/recapitulatif.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+        <action name="logout" class="fr.alpha.actions.UtilisateurAction" method="logOut">
+            <result name="success">index.jsp</result>
+        </action>
+        
     </package>
     
     

@@ -47,17 +47,37 @@
                     </button>
                     <a class="navbar-brand" href="index">@lpha</a>
 
+
+                    </button>
                 </div>
+
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <p class="navbar-text navbar-right">Signed in as Mark Otto</p>
+                    <s:if test="#session.isLogged">
+                        <a href="logout">
+                            <button type="button" class="btn btn-default navbar-right">
+                                Log out
+                            </button>
+                        </a>
+                        <p class="navbar-text navbar-right">Signed in as <s:text name="%{#session.USER.prenom}"/> <s:text name="%{#session.USER.nom}"/></p>
+                    </s:if>
+                    <s:else>
+                        <a href="login">
+                            <button type="button" class="btn btn-default navbar-right">
+                                Log in
+                            </button>
+                        </a>
+                    </s:else>
+
+
+
                     <ul class="nav navbar-nav">
                         <s:url action="add" var="addURL" />
                         <li>
                             <s:a href="%{addURL}" cssClass="brand">Nouvel Utilisateur</s:a>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
 
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
