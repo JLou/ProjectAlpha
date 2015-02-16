@@ -88,6 +88,10 @@
             <result name="success">demande-reparation/recapitulatif.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+           <action name="etat" class="fr.alpha.actions.EtatReparation">
+            <result name="success">etat.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
     </package>
     
     
