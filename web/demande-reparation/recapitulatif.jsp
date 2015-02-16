@@ -21,7 +21,7 @@
                     <td>contact@alpha.fr</td>
                 </tr>
             </table>
-            
+
         </div>
         <div class="recapContact" id="rightRecap">
             <h2>Adresse de livraison</h2>
@@ -63,5 +63,11 @@
                 <td><s:text name="forfait.total" />€</td>
             </tr>
         </table>
+                <p><s:text name="%{#session.demande.produit.nom}"/></p>
+                <p><s:text name="%{#session.demande.forfait.typePanne}"/></p>
+                <p><s:text name="%{#session.demande.produit.idmodele}"/></p>
+        <s:form>
+            <s:hidden name="forfait.id" value="forfait.id" />
+        </s:form>
     </div>
 </z:layout>

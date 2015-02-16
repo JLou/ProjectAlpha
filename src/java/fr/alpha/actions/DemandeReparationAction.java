@@ -12,12 +12,15 @@ import fr.alpha.dao.ModelDAO;
 import fr.alpha.dao.VendeurDAO;
 import fr.alpha.interceptors.UserAware;
 import fr.alpha.model.Categorie;
+import fr.alpha.model.DemandeReparation;
 import fr.alpha.model.Forfait;
 import fr.alpha.model.Modele;
 import fr.alpha.model.Vendeur;
 import fr.alpha.model.Utilisateur;
 import fr.alpha.util.HibernateUtil;
 import java.util.List;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
@@ -25,7 +28,7 @@ import org.hibernate.Transaction;
  *
  * @author INTI
  */
-public class DemandeReparationAction extends ActionSupport implements UserAware {
+public class DemandeReparationAction extends ActionSupport implements UserAware, SessionAware {
     
     List<Categorie> categories;
     private List<Modele> models;
@@ -45,6 +48,7 @@ public class DemandeReparationAction extends ActionSupport implements UserAware 
     private VendeurDAO vendeurDAO;
     
     private Utilisateur utilisateur;
+    private Map<String, Object> session;
 
     public List<Categorie> getCategories() {
         return categories;
@@ -140,6 +144,10 @@ public class DemandeReparationAction extends ActionSupport implements UserAware 
         forfaitDAO.setSessionFactory(factory);
         Transaction tx = factory.getCurrentSession().beginTransaction();
         forfait = forfaitDAO.find(yourForfait);
+        modelDAO.setSessionFactory(factory);
+        Modele modele = modelDAO.find(yourModel);
+        
+        session.put("demande", new DemandeReparation(modele, forfait));
         
         return SUCCESS;
     }
@@ -196,6 +204,11 @@ public class DemandeReparationAction extends ActionSupport implements UserAware 
     @Override
     public void setUser(Utilisateur user) {
         utilisateur = user;
+    }
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+        session = map;
     }
     
 }
