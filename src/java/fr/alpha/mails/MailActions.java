@@ -28,37 +28,14 @@ public class MailActions extends ActionSupport implements ModelDriven<Mail> , Se
     private Map<String, Object> session;
     private Mail mailForm;
 
-    /**
-     * se declenche a chaque fois qu'on arrive sur la page
-     *
-     * @return mailForm : un nouveau mail
-     */
+
     @Override
     public Mail getModel() {
         mailForm = new Mail();
         return mailForm;
     }
 
-    /**
-     * valider les champs et resoliciter les validators si besoin prend le
-     * relais sur le mechanisme des validators
-     */
-//    @Override
-//    public void validate() {
-//        super.validate(); //To change body of generated methods, choose Tools | Templates.
-//        if (mailForm.getMailTo().equals("") || mailForm.getMailTo() == null) {
-//            addFieldError("mailTo", "mailTO vide");
-//        }
-//
-//        if (mailForm.getSubject().equals("") || mailForm.getSubject() == null) {
-//            addFieldError("subject", "Sujet vide");
-//        }
-//
-//        if (mailForm.getMessage().equals("") || mailForm.getMessage() == null) {
-//            addFieldError("message", "Message vide");
-//        }
-//
-//    }
+
     @Override
     public String execute() throws Exception {
 
