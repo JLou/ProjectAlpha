@@ -21,7 +21,7 @@
                     <td>contact@alpha.fr</td>
                 </tr>
             </table>
-            
+
         </div>
         <div class="recapContact" id="rightRecap">
             <h2>Adresse de livraison</h2>
@@ -63,5 +63,6 @@
                 <td><s:text name="forfait.total" />€</td>
             </tr>
         </table>
+        <a href="payement"><button type="button" class="btn btn-success">Payement</button></a>
     </div>
 </z:layout>

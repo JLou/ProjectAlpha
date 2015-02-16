@@ -20,11 +20,10 @@
         <property name="idModele" type="int">
             <column name="id_modele" not-null="true" />
         </property>
-        <set name="infosReparations" table="infos_reparation" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="produit_idproduit" not-null="true" />
-            </key>
-            <one-to-many class="fr.alpha.model.InfosReparation" />
-        </set>
+        
+        <one-to-one name="infosReparation" class="fr.alpha.model.InfosReparation" cascade="save-update"/> 
+            
+        
+       
     </class>
 </hibernate-mapping>
