@@ -43,10 +43,7 @@
             
         </action>
         
-        <action name="sendMail" class="fr.alpha.mails.MailActions">
-            <result name="success">confirmation.jsp</result>
-            <result name="input">index.jsp</result>
-        </action>
+
         
         <action name="logOut" class="fr.alpha.actions.UtilisateurAction">
             <result name="success">index.jsp</result>
@@ -119,9 +116,14 @@
             <result name="success">index.jsp</result>
         </action>
         
-           <action name="etat" class="fr.alpha.actions.EtatReparation">
+        <action name="etat" class="fr.alpha.actions.EtatReparation">
             <result name="success">etat.jsp</result>
             <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="sendMail" class="fr.alpha.actions.MailAction">
+            <result name="success">docs.jsp</result>
+            <result name="input">index.jsp</result>
         </action>
     </package>
     
