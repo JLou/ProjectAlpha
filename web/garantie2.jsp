@@ -9,14 +9,15 @@
 <z:layout pageTitle="IndexJsp" message="${message}">
 
     <s:form action="garantie3" method="post">
-        <s:select label="Chose a Model"
-                  headerKey="-1" headerValue="--- Select ---"
-                  list="garanties"
-                  listValue="dureeFormatee" listKey="idgarantie"
-                  name="yourGarantieId"/>
-        <s:hidden value="%{yourModelgarantie}" name="yourModelgarantie"/>
-        
-        <s:submit value="Valider" align="center"/>
+        <div class="form-group">
+            <s:select label="Chose a Model"
+                      cssClass="form-control"
+                      headerKey="-1" headerValue="--- Select ---"
+                      list="garanties"
+                      listValue="dureeFormatee" listKey="idgarantie"
+                      name="yourGarantieId"/></div>
+            <s:hidden value="%{yourModelgarantie}" name="yourModelgarantie"/>
+        <button type="submit" class="btn btn-default">Valider</button>
     </s:form>
 
 </z:layout>

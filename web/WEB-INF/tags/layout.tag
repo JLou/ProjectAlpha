@@ -67,7 +67,7 @@
                                 <s:a href="%{addURLRep}" cssClass="brand">Réparation</s:a>
                                 </li>
 
-                            <s:url action="garantie" var="addURLGarantie" />
+                            <s:url action="garantie1" var="addURLGarantie" />
                             <li>
                                 <s:a href="%{addURLGarantie}" cssClass="brand">Extension de garantie</s:a>
                                 </li>
@@ -79,8 +79,9 @@
                         </s:if>    
 
                         <!-- Gestion dans le cas d'un utilisateur non connecté -->
-                        <s:else>
+                        
                             <ul class="nav navbar-nav">
+                                <s:else>
                                 <s:url action="login" var="addURLlogin" />
                                 <li>
                                     <s:a href="%{addURLlogin}" cssClass="brand">Log in</s:a>
@@ -123,7 +124,7 @@
         <hr>
 
                 <footer class="footer">
-                    <p class="text-muted container">&copy; Alpha Réparation - Garantie 2015</p>
+                    <p class="text-muted container">&copy; Alpha Réparation - Ganratie 2015</p>
                     <img height="250" src="img/aze.png" />
                 </footer>
 
@@ -132,5 +133,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 </html>
-
-

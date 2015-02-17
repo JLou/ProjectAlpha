@@ -25,7 +25,6 @@ public class ProduitsAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         
-        System.out.println("TOOTOTTO");
         this.itemList = list();
         if(itemList.size() <= 0)
             return ERROR;

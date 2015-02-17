@@ -63,7 +63,7 @@
             </tr>
         </table>
         <p class="recap-payement">
-            <a href="payement"><button type="button" class="btn btn-success">Paiement 
+            <a href="payement2"><button type="button" class="btn btn-success">Paiement 
                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                 </button></a>
         </p>
