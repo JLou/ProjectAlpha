@@ -45,7 +45,7 @@ public class MailAction extends ActionSupport implements SessionAware, UserAware
         ir.setDescritpion(dr.getDesc());
         ir.setProduit(p);
         ir.setEtat("En transit");
-
+        ir.setForfait(dr.getForfait());
         ProduitDAO pDAO = new ProduitDAO();
         SessionFactory factory = HibernateUtil.createSessionFactory();
         Transaction tx = factory.getCurrentSession().beginTransaction();

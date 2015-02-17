@@ -43,7 +43,10 @@
             
         </action>
         
-
+        <action name="suiviRep" class="fr.alpha.actions.DemandeReparationAction"
+        method="paiement">
+            <result name="success">etat.jsp</result>
+        </action>
         
         <action name="logOut" class="fr.alpha.actions.UtilisateurAction">
             <result name="success">index.jsp</result>
