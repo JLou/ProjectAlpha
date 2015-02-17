@@ -66,7 +66,7 @@
             </tr>
         </table>
         <p class="recap-payement" >
-            <a href="docs.jsp"><button type="button" class="btn btn-success">Paiement 
+            <a href="sendMail"><button type="button" class="btn btn-success">Paiement 
                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                 </button></a>
         </p>

@@ -20,8 +20,9 @@
         <property name="idModele" type="int">
             <column name="id_modele" not-null="true" />
         </property>
-        
-        <one-to-one name="infosReparation" class="fr.alpha.model.InfosReparation" cascade="save-update"/> 
+        <many-to-one name="infosReparation" class="fr.alpha.model.InfosReparation"
+                     cascade="save-update" column="produit_infosReparation"
+                     unique="true" not-null="true"/> 
             
         
        
