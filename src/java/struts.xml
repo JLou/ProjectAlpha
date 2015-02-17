@@ -112,10 +112,37 @@
             <result name="success">index.jsp</result>
         </action>
         
-           <action name="etat" class="fr.alpha.actions.EtatReparation">
+        <action name="etat" class="fr.alpha.actions.EtatReparation">
             <result name="success">etat.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+        
+        <action name="garantie1" class="fr.alpha.actions.GarantieAction"
+                method="listModels">
+            <result name="success">garantie.jsp</result>
+            <result name="error">index.jsp</result>
+            <result name="input">garantie.jsp</result>
+        </action>
+        
+        <action name="garantie2" class="fr.alpha.actions.GarantieAction"
+                method="listGaranties">
+            <result name="success">garantie2.jsp</result>
+            <result name="error">index.jsp</result>
+            <result name="input">garantie2.jsp</result>
+        </action>
+        
+        <action name="garantie3" class="fr.alpha.actions.GarantieAction"
+                method="recapitulatifGarantie">
+            <result name="success">factureGarantie.jsp</result>
+            <result name="error">index.jsp</result>
+            <result name="input">garantie2.jsp</result>
+        </action>
+        
+        <action name="payement" class="fr.alpha.actions.DemandeReparationAction"
+                method="paiement">
+            <result name="success">index.jsp</result>
+        </action>
+        
     </package>
     
     

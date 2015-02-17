@@ -50,6 +50,7 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
     private Utilisateur utilisateur;
     private Map<String, Object> session;
 
+    
     public List<Categorie> getCategories() {
         return categories;
     }
@@ -104,7 +105,6 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         Transaction tx = factory.getCurrentSession().beginTransaction();
         categories = categorieDAO.findAll();
         //tx.commit();
-
         return INPUT;
     }
 
@@ -150,6 +150,10 @@ public class DemandeReparationAction extends ActionSupport implements UserAware,
         
         session.put("demande", new DemandeReparation(modele, forfait));
         
+        return SUCCESS;
+    }
+    
+    public String paiement(){
         return SUCCESS;
     }
 

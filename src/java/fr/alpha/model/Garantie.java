@@ -1,5 +1,5 @@
 package fr.alpha.model;
-// Generated 11 févr. 2015 15:14:00 by Hibernate Tools 4.3.1
+// Generated 11 fï¿½vr. 2015 15:14:00 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -78,7 +78,9 @@ public class Garantie  implements java.io.Serializable {
         this.utilisateurHasGaranties = utilisateurHasGaranties;
     }
 
-
+    public String getDureeFormatee(){
+        return duree + " mois : " + prix + "â‚¬";
+    }
 
 
 }

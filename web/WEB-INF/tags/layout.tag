@@ -45,10 +45,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index">@lpha</a>
+                    <a class="navbar-brand" href="index.jsp">@lpha</a>
 
 
-                    </button>
                 </div>
 
 
@@ -58,16 +57,16 @@
                         <p class="navbar-text navbar-right">Signed in as <s:text name="%{#session.USER.prenom}"/> <s:text name="%{#session.USER.nom}"/></p>
                     </s:if>
                     
-                       
+                    
                     <!-- Gestion dans le cas d'un utilisateur connecté -->
                     <s:if test="#session.isLogged">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         
                             <s:url action="logout" var="addURLlogout" />
                             <li>
                                 <s:a href="%{addURLlogout}" cssClass="brand">Log out</s:a>
                             </li>
-                        
+                            
                     </ul>
                         
                     <ul class="nav navbar-nav">
@@ -81,7 +80,7 @@
                          
                     <ul class="nav navbar-nav">
                        
-                            <s:url action="garantie" var="addURLGarantie" />
+                            <s:url action="garantie1" var="addURLGarantie" />
                             <li>
                                 <s:a href="%{addURLGarantie}" cssClass="brand">Extension de garantie</s:a>
                             </li>
@@ -99,7 +98,7 @@
                     
                     <!-- Gestion dans le cas d'un utilisateur non connecté -->
                     <s:else>
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                             <s:url action="login" var="addURLlogin" />
                             <li>
                                 <s:a href="%{addURLlogin}" cssClass="brand">Log in</s:a>

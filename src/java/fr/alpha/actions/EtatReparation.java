@@ -36,10 +36,6 @@ public class EtatReparation extends ActionSupport implements UserAware {
         this.produits = produits;
     }
 
-
-
-  
-
     public Utilisateur getUtilisateur() {
         return utilisateur;
     }
