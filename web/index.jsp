@@ -5,4 +5,3 @@
 <z:layout pageTitle="IndexJsp" message="${message}">
  
 </z:layout>
-
