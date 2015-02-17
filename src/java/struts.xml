@@ -49,7 +49,12 @@
             <result name="success">index.jsp</result>
         </action>
         
-
+        <action name="documents" class="fr.alpha.actions.DocsAction">
+            <result name="bonenvoi">bonEnvoi.jsp</result>
+            <result name="bonretour">bonRetour.jsp</result>
+            <result name="fiche">ficheReparation.jsp</result>
+            <result name="error">etat.jsp</result>
+        </action>
         
     </package>
     
@@ -125,6 +130,8 @@
             <result name="success">docs.jsp</result>
             <result name="input">index.jsp</result>
         </action>
+        
+
     </package>
     
     

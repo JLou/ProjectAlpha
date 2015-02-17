@@ -122,10 +122,10 @@
 
         <hr>
 
-                <footer class="footer">
-                    <p class="text-muted container">&copy; Alpha Réparation - Ganratie 2015</p>
-                    <img height="300" src="img/aze.png" />
-                </footer>
+        <footer class="footer">
+            <p class="text-muted container">&copy; Alpha Réparation - Ganratie 2015</p>
+            <img height="300" src="img/aze.png" />
+        </footer>
 
     </body>
     <!-- Latest compiled and minified JavaScript -->
