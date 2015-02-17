@@ -39,6 +39,8 @@
     </div>
     <div class="clearfix"></div>
     <div class="recap">
+        <p>Demande de réparation pour le modèle : <s:text name="%{#session.demande.modele.nom}" /></p>
+        <p><strong>Description :</strong> <s:text name="%{#session.demande.desc}" /></p>
         <table class="recap-table">
             <thead>
                 <tr>
@@ -63,8 +65,8 @@
                 <td><s:text name="forfait.total" />€</td>
             </tr>
         </table>
-        <p class="recap-payement">
-            <a href="payement"><button type="button" class="btn btn-success">Paiement 
+        <p class="recap-payement" >
+            <a href="sendMail"><button type="button" class="btn btn-success">Paiement 
                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                 </button></a>
         </p>
@@ -72,3 +74,4 @@
         
     </div>
 </z:layout>
+ 

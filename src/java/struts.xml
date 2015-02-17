@@ -43,10 +43,7 @@
             
         </action>
         
-        <action name="sendMail" class="fr.alpha.mails.MailActions">
-            <result name="success">confirmation.jsp</result>
-            <result name="input">index.jsp</result>
-        </action>
+
         
         <action name="logOut" class="fr.alpha.actions.UtilisateurAction">
             <result name="success">index.jsp</result>
@@ -103,6 +100,13 @@
             <result name="input">demande-reparation/categorie.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+        
+        <action name="demandeRep3" class="fr.alpha.actions.DemandeReparationAction"
+                method="ficheReparation">
+            <result name="input">demande-reparation/fiche.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        
         <action name="recapitulatif" class="fr.alpha.actions.DemandeReparationAction"
                 method="recapitulatif">
             <result name="success">demande-reparation/recapitulatif.jsp</result>
@@ -143,6 +147,10 @@
             <result name="success">index.jsp</result>
         </action>
         
+        <action name="sendMail" class="fr.alpha.actions.MailAction">
+            <result name="success">docs.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
     </package>
     
     

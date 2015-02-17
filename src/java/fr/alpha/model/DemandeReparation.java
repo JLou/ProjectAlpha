@@ -5,6 +5,8 @@
  */
 package fr.alpha.model;
 
+import fr.alpha.util.Locations;
+
 /**
  *
  * @author INTI
@@ -12,6 +14,36 @@ package fr.alpha.model;
 public class DemandeReparation {
     private Modele modele;
     private Forfait forfait;
+    private String desc;
+    private int adresseDeRetour;
+
+    public DemandeReparation(Modele modele, Forfait forfait, String desc, int adresseDeRetour) {
+        this.modele = modele;
+        this.forfait = forfait;
+        this.desc = desc;
+        this.adresseDeRetour = adresseDeRetour;
+        System.out.println("-------------------------------------------------");
+        System.out.println(desc);
+        System.out.println(adresseDeRetour);
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public int getAdresseDeRetour() {
+        return adresseDeRetour;
+    }
+    public String getAdresseRetour (){
+        return Locations.towns.get(adresseDeRetour);
+    }
+    public void setAdresseDeRetour(int adresseDeRetour) {
+        this.adresseDeRetour = adresseDeRetour;
+    }
 
     public DemandeReparation(Modele modele, Forfait forfait) {
         this.modele = modele;
