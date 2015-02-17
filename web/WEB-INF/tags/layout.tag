@@ -72,7 +72,7 @@
                                 <s:a href="%{addURLGarantie}" cssClass="brand">Extension de garantie</s:a>
                                 </li>
 
-                            <s:url action="suiviRep" var="addURLSuiviRep" />
+                            <s:url action="etat" var="addURLSuiviRep" />
                             <li>
                                 <s:a href="%{addURLSuiviRep}" cssClass="brand">Suivi de réparation</s:a>
                                 </li>

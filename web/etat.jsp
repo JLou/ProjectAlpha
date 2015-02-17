@@ -21,9 +21,9 @@
 
             <s:iterator value="produits">
                 <tr>
-                    <td><s:property value="modele" /></td>
+                    <td><s:property value="modele.nom" /></td>
                    
-                    <td><s:property value="infosReparations.etat" /></td>
+                    <td><s:property value="infosReparation.etat" /></td>
                 </tr> 
             </s:iterator>
 
