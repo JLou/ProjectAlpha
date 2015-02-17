@@ -24,7 +24,9 @@ import java.io.FileOutputStream;
 
 
 "        "));
-    String imageUrl = "http://www.online-image-editor.com//styles/2014/images/example_image.png";
- document.add(Image.getInstance(new URL(imageUrl)));
+   
+    Image image1 = Image.getInstance("C:\\Users\\INTI\\Desktop\\tp adamingsav5\\ProjectAlpha\\web\\img\\logo.png");
+        document.add(image1);
+   
    document.close();
 %>

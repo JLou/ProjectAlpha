@@ -4,8 +4,7 @@
 <%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
 <z:layout pageTitle="IndexJsp" message="${message}">
 
+    <h2>Items in Master</h2>
     
-    <p><a href="demandeRep">DEMANDE REPARATION</a></p>
-
 </z:layout>
 
