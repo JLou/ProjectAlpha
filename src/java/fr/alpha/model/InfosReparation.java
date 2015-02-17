@@ -16,10 +16,16 @@ public class InfosReparation  implements java.io.Serializable {
      private int idproduit;
      private int idutilisateur;
      private String etat;
+     private Forfait forfait;
+
+    public Forfait getForfait() {
+        return forfait;
+    }
+
+    public void setForfait(Forfait forfait) {
+        this.forfait = forfait;
+    }
     
-
-
-
     public InfosReparation() {
     }
 

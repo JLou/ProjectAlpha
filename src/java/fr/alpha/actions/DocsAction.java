@@ -37,6 +37,9 @@ public class DocsAction extends ActionSupport {
 
         produit = pDAO.find(id);
 
+        System.out.println("-------------------------------------------------");
+        System.out.println(produit.getIdModele());
+        System.out.println(id);
         switch (type) {
             case BON_ENVOI:
                 return "bonenvoi";
@@ -63,6 +66,14 @@ public class DocsAction extends ActionSupport {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
     }
 
 }

@@ -16,19 +16,19 @@
             </thead>
             <tr>
                 <th>Port</th>
-                <td><s:text name="%{#session.demande.forfait.coutPort}" />€</td>
+                <td><s:text name="produit.infosReparation.forfait.coutPort" />€</td>
             </tr>
             <tr>
                 <th>Diagnostic</th>
-                <td><s:text name="%{#session.demande.forfait.coutDevis}" />€</td>
+                <td><s:text name="produit.infosReparation.forfait.coutDevis" />€</td>
             </tr>
             <tr>
                 <th>Réparation</th>
-                <td><s:text name="%{#session.demande.forfait.coutReparation}" />€</td>
+                <td><s:text name="produit.infosReparation.forfait.coutReparation" />€</td>
             </tr>
             <tr class="recap-total">
                 <th>Total:</th>
-                <td><s:text name="%{#session.demande.forfait.total}" />€</td>
+                <td><s:text name="produit.infosReparation.forfait.total" />€</td>
             </tr>
         </table>
         
