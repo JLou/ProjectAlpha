@@ -16,7 +16,7 @@
         <table>
             <tr>
 
-                <td> Mr   <s:text name="utilisateur.nom" /></td>
+                <td> Mr/Mme   <s:text name="%{#session.USER.nom}" /></td>
             </tr>
 
             <s:iterator value="produits">
