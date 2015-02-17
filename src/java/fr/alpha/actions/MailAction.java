@@ -28,6 +28,7 @@ public class MailAction extends ActionSupport implements SessionAware, UserAware
 
     private Map<String, Object> session;
     private Utilisateur user;
+    private int idProduit;
 
     @Override
     public String execute() throws Exception {
@@ -44,7 +45,7 @@ public class MailAction extends ActionSupport implements SessionAware, UserAware
         ir.setDescritpion(dr.getDesc());
         ir.setProduit(p);
         ir.setEtat("En transit");
-
+        ir.setForfait(dr.getForfait());
         ProduitDAO pDAO = new ProduitDAO();
         SessionFactory factory = HibernateUtil.createSessionFactory();
         Transaction tx = factory.getCurrentSession().beginTransaction();
@@ -56,12 +57,20 @@ public class MailAction extends ActionSupport implements SessionAware, UserAware
         p.setInfosReparation(ir);
         pDAO.save(p);
         
+        
         tx.commit();
 
-        
-        
+        idProduit = p.getIdproduit();
         sendMail();
         return SUCCESS;
+    }
+
+    public int getIdProduit() {
+        return idProduit;
+    }
+
+    public void setIdProduit(int idProduit) {
+        this.idProduit = idProduit;
     }
 
     @Override

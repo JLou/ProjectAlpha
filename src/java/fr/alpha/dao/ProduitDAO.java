@@ -22,7 +22,7 @@ public class ProduitDAO extends GenericDAOImpl<Produit, Long>{
         
         Search s = new Search(Produit.class);
         s.addFilterSome("utilisateur", Filter.equal("idutilisateur", idutilisateur));
-        s.addFetch("infosReparations");
+        s.addFetch("infosReparation");
         return search(s);
     }
     

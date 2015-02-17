@@ -8,8 +8,7 @@ package fr.alpha.model;
 import fr.alpha.util.Locations;
 
 /**
- *
- * @author INTI
+ * * @author INTI
  */
 public class DemandeReparation {
     private Modele modele;

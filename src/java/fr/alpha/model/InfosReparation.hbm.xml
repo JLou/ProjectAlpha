@@ -21,6 +21,10 @@
         <property name="idutilisateur" type="int">
             <column name="idutilisateur" not-null="true" />
         </property>
+        
+        <many-to-one name="forfait" class="fr.alpha.model.Forfait" fetch="select">
+            <column name="idforfait" not-null="true" />
+        </many-to-one>
      
         <property name="etat" type="string">
             <column name="etat" length="45" not-null="true" />
