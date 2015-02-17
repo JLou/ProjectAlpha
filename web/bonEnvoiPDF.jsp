@@ -1,3 +1,10 @@
+<%@page import="java.net.URL"%>
+
+import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import java.io.FileOutputStream;
+<%@page import="com.itextpdf.text.Image"%>
 
 <%@page import="com.itextpdf.text.Document"%>
 <%@page import="com.itextpdf.text.Paragraph"%>
@@ -17,6 +24,7 @@
 
 
 "        "));
-
+    String imageUrl = "http://www.online-image-editor.com//styles/2014/images/example_image.png";
+ document.add(Image.getInstance(new URL(imageUrl)));
    document.close();
 %>
