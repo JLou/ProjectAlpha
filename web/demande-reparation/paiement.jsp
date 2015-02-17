@@ -9,14 +9,19 @@
 <%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <z:layout pageTitle="Type de panne">
-        
+
     <s:form action="TypePanne" method="post">
-            <s:select label="Type de panne"
-		headerKey="-1" headerValue="--- Select ---"
-                list="forfaits"
-                listValue="typePanne" listKey="idforfait"
-                name="yourForfait"/>
-            <s:hidden value="%{yourModel}" name="yourModel"/>
-            <s:submit value="Valider" align="center"/>
-        </s:form>
+        <div class="form-group">
+            <label for="yourForfait">Chose a Model</label>
+        <s:select label="Type de panne"
+                  cssClass="form-control"
+                  headerKey="-1" headerValue="--- Select ---"
+                  list="forfaits"
+                  listValue="typePanne" listKey="idforfait"
+                  name="yourForfait"/>
+        <s:hidden value="%{yourModel}" name="yourModel"/>
+        </div>
+        <button align="center" type="submit"
+                class="btn btn-default">Valider</button>
+    </s:form>
 </z:layout>

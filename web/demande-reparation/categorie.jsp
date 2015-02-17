@@ -9,13 +9,20 @@
 <%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <z:layout pageTitle="Choix de la catégorie">
-        
-        <s:form action="demandeRep2" method="post">
+
+    <s:form action="demandeRep2" method="post">
+        <div class="form-group">
+            <label for="yourCategory">Chose a category</label>
             <s:select label="Chose a category" 
-		headerKey="-1" headerValue="--- Select ---"
-                list="categories"
-                listValue="nom" listKey="idcategorie"
-                name="yourCategory"/>
-            <s:submit value="Valider" align="center"/>
-        </s:form>
+                      cssClass="form-control"
+                      headerKey="-1" headerValue="--- Select ---"
+                      list="categories"
+                      listValue="nom" listKey="idcategorie"
+                      name="yourCategory"
+                      />
+            </div>
+            <button align="center" type="submit"
+                    class="btn btn-default">Valider</button>
+        
+    </s:form>
 </z:layout>
