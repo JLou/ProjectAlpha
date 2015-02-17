@@ -1,4 +1,5 @@
 
+<%@page import="com.itextpdf.text.Image"%>
 <%@page import="fr.alpha.model.Utilisateur"%>
 <%@page import="com.itextpdf.text.Chunk"%>
 <%@page import="com.itextpdf.text.Document"%>
@@ -24,6 +25,7 @@
               "Adresse : " + ((Utilisateur) session.getAttribute("USER")).getTownName());
         paragraph2.add(chunk2);  
    document.add(paragraph2);
-
+Image image1 = Image.getInstance("C:\\Users\\INTI\\Desktop\\tp adamingsav5\\ProjectAlpha\\web\\img\\logo.png");
+        document.add(image1);
    document.close();
 %>

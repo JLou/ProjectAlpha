@@ -1,3 +1,4 @@
+<%@page import="com.itextpdf.text.Image"%>
 <%@page import="fr.alpha.model.DemandeReparation"%>
 <%@page import="fr.alpha.model.Utilisateur"%>
 <%@page import="com.itextpdf.text.Chunk"%>
@@ -41,6 +42,7 @@
               "Total: :                                                               " + ((DemandeReparation) session.getAttribute("demande")).getForfait().getTotal()+"  euros");
         paragraph5.add(chunk5);
    document.add(paragraph5);
-
+   Image image1 = Image.getInstance("C:\\Users\\INTI\\Desktop\\tp adamingsav5\\ProjectAlpha\\web\\img\\logo.png");
+   document.add(image1);
    document.close();
 %>

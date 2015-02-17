@@ -23,7 +23,7 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${pageTitle}</title>
-        <link rel="icon" type="image/png" href="http://fc01.deviantart.net/fs70/f/2011/104/8/e/custom_website_icon_by_jhewitt86-d3dyh5z.png" />
+        <link rel="icon" type="image/png" href="img/logo2.png" />
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -124,7 +124,7 @@
 
                 <footer class="footer">
                     <p class="text-muted container">&copy; Alpha Réparation - Ganratie 2015</p>
-                    <img height="300" src="img/aze.png" />
+                    <img height="250" src="img/aze.png" />
                 </footer>
 
     </body>
