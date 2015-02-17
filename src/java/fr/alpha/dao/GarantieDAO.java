@@ -6,7 +6,10 @@
 package fr.alpha.dao;
 
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
+import com.googlecode.genericdao.search.Filter;
+import com.googlecode.genericdao.search.Search;
 import fr.alpha.model.Garantie;
+import java.util.List;
 
 /**
  *
@@ -14,9 +17,13 @@ import fr.alpha.model.Garantie;
  */
 public class GarantieDAO extends GenericDAOImpl<Garantie, Long>{
 
-    public GarantieDAO() {
-    }
     
+    
+    public List<Garantie> findByCode(int idmodele) {
+        Search s = new Search(Garantie.class);
+        s.addFilter(Filter.equal("idmodele", idmodele));
+        return search(s);
+    }
     
     
 }
