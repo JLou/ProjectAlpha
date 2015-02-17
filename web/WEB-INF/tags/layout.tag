@@ -39,16 +39,10 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.jsp">@lpha</a>
-
-
-                    </button>
+                    <a class="navbar-brand" href="index.jsp">
+                        <img src="img/logo2.png" alt="Alpha Réparation" 
+                             width="50" />
+                    </a>
                 </div>
 
 
@@ -68,78 +62,52 @@
                                 <s:a href="%{addURLlogout}" cssClass="brand">Log out</s:a>
                                 </li>
 
-                            </ul>
-
-                            <ul class="nav navbar-nav">
-
                             <s:url action="demandeRep" var="addURLRep" />
                             <li>
                                 <s:a href="%{addURLRep}" cssClass="brand">Réparation</s:a>
                                 </li>
-
-                            </ul>
-
-                            <ul class="nav navbar-nav">
 
                             <s:url action="garantie" var="addURLGarantie" />
                             <li>
                                 <s:a href="%{addURLGarantie}" cssClass="brand">Extension de garantie</s:a>
                                 </li>
 
-                            </ul>
-
-                            <ul class="nav navbar-nav">
                             <s:url action="suiviRep" var="addURLSuiviRep" />
                             <li>
                                 <s:a href="%{addURLSuiviRep}" cssClass="brand">Suivi de réparation</s:a>
                                 </li>
-                            </ul> 
+                        </s:if>    
 
-                    </s:if>    
-
-                    <!-- Gestion dans le cas d'un utilisateur non connecté -->
-                    <s:else>
-                        <ul class="nav navbar-nav">
-                            <s:url action="login" var="addURLlogin" />
-                            <li>
-                                <s:a href="%{addURLlogin}" cssClass="brand">Log in</s:a>
-                                </li>
-                            </ul>
-
+                        <!-- Gestion dans le cas d'un utilisateur non connecté -->
+                        <s:else>
                             <ul class="nav navbar-nav">
-                            <s:url action="login" var="addURLRep" />
+                                <s:url action="login" var="addURLlogin" />
+                                <li>
+                                    <s:a href="%{addURLlogin}" cssClass="brand">Log in</s:a>
+                                    </li>
+
+                                <s:url action="login" var="addURLRep" />
+                                <li>
+                                    <s:a href="%{addURLRep}" cssClass="brand">Réparation</s:a>
+                                    </li>
+
+                                <s:url action="login" var="addURLGarantie" />
+                                <li>
+                                    <s:a href="%{addURLGarantie}" cssClass="brand">Extension de garantie</s:a>
+                                    </li>
+                                <s:url action="login" var="addURLSuiviRep" />
+                                <li>
+                                    <s:a href="%{addURLSuiviRep}" cssClass="brand">Suivi de réparation</s:a>
+                                    </li>
+                            </s:else>    
+
+                            <s:url action="add" var="addURL" />
                             <li>
-                                <s:a href="%{addURLRep}" cssClass="brand">Réparation</s:a>
+                                <s:a href="%{addURL}" cssClass="brand">Nouvel Utilisateur</s:a>
                                 </li>
+
+
                             </ul>
-
-                            <ul class="nav navbar-nav">
-                            <s:url action="login" var="addURLGarantie" />
-                            <li>
-                                <s:a href="%{addURLGarantie}" cssClass="brand">Extension de garantie</s:a>
-                                </li>
-                            </ul>
-
-                            <ul class="nav navbar-nav">
-                            <s:url action="login" var="addURLSuiviRep" />
-                            <li>
-                                <s:a href="%{addURLSuiviRep}" cssClass="brand">Suivi de réparation</s:a>
-                                </li>
-                            </ul>   
-                    </s:else>    
-                    <ul class="nav navbar-nav">    
-
-
-
-
-
-                        <s:url action="add" var="addURL" />
-                        <li>
-                            <s:a href="%{addURL}" cssClass="brand">Nouvel Utilisateur</s:a>
-                            </li>
-
-
-                        </ul>
 
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -147,16 +115,17 @@
 
 
             <div class="col-md-10 col-md-offset-1">
-                <jsp:doBody/>
-            </div>
+            <jsp:doBody/>
+        </div>
 
 
 
         <hr>
 
-        <footer class="footer">
-            <p class="text-muted container">&copy; @lpha 2015</p>
-        </footer>
+                <footer class="footer">
+                    <p class="text-muted container">&copy; Alpha Réparation - Ganratie 2015</p>
+                    <img height="300" src="img/aze.png" />
+                </footer>
 
     </body>
     <!-- Latest compiled and minified JavaScript -->
