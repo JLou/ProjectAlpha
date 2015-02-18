@@ -27,9 +27,9 @@
                     <p><h3>Maxime Traverst</h3>
                     <blockquote>
                         <p>
-                            On va taguer une vache
+                            On s'étend vers l'Ouest
                         </p>
-                        <footer>Maxime à la <cite title="Source Title">Foire du Trône</cite></footer>
+                        <footer>Maxime à la <cite title="Source Title">Monument Valley</cite></footer>
                     </blockquote>
                     </p>
                 </div>
