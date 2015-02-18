@@ -8,7 +8,9 @@ and open the template in the editor.
     Author     : INTI
 */
 
-
+html {
+    background-color: #F5F5F5;
+}
 .recap {
     width:90%;
     margin:auto;
@@ -106,4 +108,25 @@ input[type=number]{
 ul.navbar-nav li a{
     height: 80px;
     line-height: 45px;
+}
+.employe-of-the-month {
+    border:1px solid #e5e5e5;
+    padding: 10px;
+    background-color: #f8f8f8;
+    
+}
+.employe-of-the-month h2, .employe-of-the-month h3{
+    text-align: center;
+}
+.employe-of-the-month h3 {
+    margin-top:0;
+}
+.row-index {
+    margin-top:20px;
+}
+.employe-of-the-month h2 {
+    font-size: 1.8em;
+}
+.employe-of-the-month blockquote {
+    font-size :1em;
 }
