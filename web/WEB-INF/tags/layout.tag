@@ -121,7 +121,7 @@
 
 
 
-        <hr>
+        <div class="clearfix"></div>
 
         <footer class="footer">
             <p class="text-muted container">&copy; Alpha Réparation - Garantie 2015</p>
