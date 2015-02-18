@@ -8,11 +8,15 @@ package fr.alpha.actions;
 import com.opensymphony.xwork2.ActionSupport;
 import fr.alpha.dao.GarantieDAO;
 import fr.alpha.dao.ModelDAO;
+import fr.alpha.dao.UtilisateurHasGarantieDAO;
 import fr.alpha.interceptors.UserAware;
 import fr.alpha.model.Garantie;
 import fr.alpha.model.Modele;
 import fr.alpha.model.Utilisateur;
+import fr.alpha.model.UtilisateurHasGarantie;
+import fr.alpha.model.UtilisateurHasGarantieId;
 import fr.alpha.util.HibernateUtil;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
@@ -23,20 +27,24 @@ import org.hibernate.Transaction;
  *
  * @author INTI
  */
-public class GarantieAction extends ActionSupport implements UserAware, SessionAware{
+public class GarantieAction extends ActionSupport implements UserAware, SessionAware {
 
     private Garantie garantie;
     private GarantieDAO garantieDAO;
+
+    private UtilisateurHasGarantieDAO utilisateurHasGarantieDAO;
+    private UtilisateurHasGarantie utilisateurHasGarantie;
+
     private String message_garantie = "";
     private Map<String, Object> session;
     List<Garantie> garanties;
-    
+
     private int yourModelgarantie;
     private ModelDAO modelDAO;
     private List<Modele> models;
-    
+
     private Utilisateur utilisateur;
-    
+
     private int yourGarantieId;
 
     public int getYourGarantieId() {
@@ -50,6 +58,8 @@ public class GarantieAction extends ActionSupport implements UserAware, SessionA
     public GarantieAction() {
         garantieDAO = new GarantieDAO();
         modelDAO = new ModelDAO();
+        utilisateurHasGarantieDAO = new UtilisateurHasGarantieDAO();
+
     }
 
     public List<Garantie> getGaranties() {
@@ -90,10 +100,10 @@ public class GarantieAction extends ActionSupport implements UserAware, SessionA
         Transaction tx = factory.getCurrentSession().beginTransaction();
         garanties = garantieDAO.findByCode(yourModelgarantie);
         //tx.commit();
-        
+
         return INPUT;
     }
-    
+
     public String listModels() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         modelDAO.setSessionFactory(factory);
@@ -103,17 +113,56 @@ public class GarantieAction extends ActionSupport implements UserAware, SessionA
 
         return INPUT;
     }
-    
+
     public String recapitulatifGarantie() {
         SessionFactory factory = HibernateUtil.createSessionFactory();
         garantieDAO.setSessionFactory(factory);
         Transaction tx = factory.getCurrentSession().beginTransaction();
         garantie = garantieDAO.find(yourGarantieId);
         session.put("garantie", garantie);
-        
+
         return SUCCESS;
     }
-    
+
+    public String addGarantie() {
+
+        garantie = (Garantie) session.get("garantie");
+
+        utilisateurHasGarantie = new UtilisateurHasGarantie();
+        utilisateurHasGarantie.setUtilisateur(utilisateur);
+        utilisateurHasGarantie.setGarantie(garantie);
+        utilisateurHasGarantie.setDateDebut(new Date(2015, 3, 15));
+
+        UtilisateurHasGarantieId utilHasGarantieId = new UtilisateurHasGarantieId(utilisateur.getIdutilisateur(),
+                garantie.getIdgarantie());
+        utilisateurHasGarantie.setId(utilHasGarantieId);
+        
+        SessionFactory factory = HibernateUtil.createSessionFactory();
+        utilisateurHasGarantieDAO.setSessionFactory(factory);
+        Transaction tx = factory.getCurrentSession().beginTransaction();
+
+        utilisateurHasGarantieDAO.save(utilisateurHasGarantie);
+
+        tx.commit();
+
+        return SUCCESS;
+    }
+
+    public UtilisateurHasGarantieDAO getUtilisateurHasGarantieDAO() {
+        return utilisateurHasGarantieDAO;
+    }
+
+    public void setUtilisateurHasGarantieDAO(UtilisateurHasGarantieDAO utilisateurHasGarantieDAO) {
+        this.utilisateurHasGarantieDAO = utilisateurHasGarantieDAO;
+    }
+
+    public UtilisateurHasGarantie getUtilisateurHasGarantie() {
+        return utilisateurHasGarantie;
+    }
+
+    public void setUtilisateurHasGarantie(UtilisateurHasGarantie utilisateurHasGarantie) {
+        this.utilisateurHasGarantie = utilisateurHasGarantie;
+    }
 
     public Garantie getGarantie() {
         return garantie;
@@ -159,5 +208,5 @@ public class GarantieAction extends ActionSupport implements UserAware, SessionA
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
-    
+
 }

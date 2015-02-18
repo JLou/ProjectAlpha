@@ -150,8 +150,8 @@
             <result name="input">garantie2.jsp</result>
         </action>
         
-        <action name="payement2" class="fr.alpha.actions.DemandeReparationAction"
-                method="paiement">
+        <action name="payement2" class="fr.alpha.actions.GarantieAction"
+                method="addGarantie">
             <result name="success">index.jsp</result>
         </action>
         

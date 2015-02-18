@@ -10,6 +10,7 @@ import static com.opensymphony.xwork2.Action.INPUT;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import fr.alpha.dao.UtilisateurDAO;
 import fr.alpha.dao.VendeurDAO;
 import fr.alpha.model.Utilisateur;
 import fr.alpha.model.Vendeur;
@@ -36,9 +37,11 @@ public class VendeurAction extends ActionSupport implements SessionAware {
     private Vendeur vendeur;
     private String message_vendeur = "";
     private Map<String, Object> session;
+    private UtilisateurDAO utilDAO;
 
     public VendeurAction() {
-        this.vendeurDAO = new VendeurDAO();
+        vendeurDAO = new VendeurDAO();
+        utilDAO = new UtilisateurDAO();
         
     }
 
@@ -80,8 +83,15 @@ public class VendeurAction extends ActionSupport implements SessionAware {
         if (user != null && !user.getNom().equals("")
                 && !user.getMail().equals("") && !user.getPrenom().equals("") && !user.getMdp().equals("")) {
 
+            SessionFactory factory = HibernateUtil.createSessionFactory();
+            utilDAO.setSessionFactory(factory);
+            Transaction tx = factory.getCurrentSession().beginTransaction();
+            
             session.put("USER", user);
+            utilDAO.save(user);
 
+            tx.commit();
+            
             return SUCCESS;
         }
         return INPUT;
